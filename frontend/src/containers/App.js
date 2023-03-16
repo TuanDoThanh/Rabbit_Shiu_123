@@ -4,6 +4,7 @@ import HomeContainer from './home.container'
 import LoginRegisterContainer from './login.register.container'
 import VerifyRegisterAccountContainer from './verify.register.account.container'
 import ForgotPasswordContainer from './forgot.password.container'
+import ProfileContainer from './profile.container'
 const App = () => (
   <Router>
     <Switch>
@@ -11,6 +12,7 @@ const App = () => (
       <Route exact path='/login_register' component={LoginRegisterContainer} />
       <Route exact path='/confirm/:token' component={VerifyRegisterAccountContainer} />
       <Route exact path='/forgotpass/' component={ForgotPasswordContainer} />
+      <Route exact path='/profile/:email' component={ProfileContainer} />
     </Switch>
   </Router>
 )

@@ -1353,7 +1353,19 @@
       /*************************
       *******Product Details CSS******
       **************************/
+      .menu-profile ul{
+        display: flex;
+        justify-content: space-around;
+      }
+      .menu-profile ul button{
+        background-color: transparent;
+        border: none 0;
+        font-size: 16px;
+      }
+      .menu-profile ul button:hover{
+        color: #f15129;
 
+      }
       
       /*************************
       *******404 CSS******
