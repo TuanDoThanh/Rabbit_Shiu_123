@@ -7,13 +7,14 @@ import AuthorContainer from "./author.container";
 import PublisherContainer from "./publisher.container";
 import UserContainer from "./user.container";
 import LoginContainer from "./login.container";
-
+import StatisticalContainer from './statistical.container'
+import BillContainer from './bill.container'
 class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-        <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/" component={HomeContainer} />
           <Route exact path="/bookmanager" component={BookContainer} />
           <Route exact path="/categorymanager" component={CategoryContainer} />
           <Route exact path="/authormanager" component={AuthorContainer} />
@@ -24,7 +25,8 @@ class App extends Component {
           />
           <Route exact path="/usermanager" component={UserContainer} />
           <Route exact path="/login" component={LoginContainer} />
-          
+          <Route exact path="/statistical" component={StatisticalContainer} />
+          <Route exact path="/billmanager" component={BillContainer} />
         </Switch>
       </Router>
     );
