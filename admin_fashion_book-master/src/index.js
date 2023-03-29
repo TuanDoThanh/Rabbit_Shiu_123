@@ -12,6 +12,7 @@ import reducers from './reducers'
 const middleware = [ thunk ];
 
 axios.defaults.baseURL = API_URL;
+console.log(API_URL);
     
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
