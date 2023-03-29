@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { API_URL } from "../constants/urls";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as userActions from "../actions/user.action";
@@ -22,7 +21,7 @@ class LoginContainer extends Component {
     }
     let res;
     try {
-      res = await axios.post(`${API_URL}/admin/login`, {
+      res = await axios.post(`/admin/login`, {
         email: email,
         password: password
       });

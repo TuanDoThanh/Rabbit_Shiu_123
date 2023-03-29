@@ -1,10 +1,9 @@
 import axios from 'axios'
-import { API_URL } from '../constants/urls'
 import { bookTypes } from '../constants/action.types'
 export const getBook = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post(`${API_URL}/book/allbook`, {
+        res = await axios.post(`/book/allbook`, {
             page: getState().bookReducers.book.page,
             range: null
         })
@@ -55,7 +54,7 @@ export const publisherSetTotalPage = (totalpage) => ({
 export const deleteBook = (id) => async(dispatch, getState) => {
     let res
     try {
-        res = await axios.get(`${API_URL}/admin/deletebook/${id}`)
+        res = await axios.get(`/admin/deletebook/${id}`)
     }
     catch (err) {
         console.log(err)
@@ -68,7 +67,7 @@ export const deleteBook = (id) => async(dispatch, getState) => {
 export const getCategory = () => async (dispatch, getState) =>  {
     let res
     try {
-        res = await axios.get(`${API_URL}/${getState().bookReducers.category.page}`)
+        res = await axios.get(`/${getState().bookReducers.category.page}`)
     }
     catch (err) {
         return
@@ -80,7 +79,7 @@ export const getCategory = () => async (dispatch, getState) =>  {
 export const getPublisher = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get(`${API_URL}/publisher/all/${getState().bookReducers.publisher.page}`)
+        res = await axios.get(`/publisher/all/${getState().bookReducers.publisher.page}`)
     }
     catch (err) {
         return
@@ -92,7 +91,7 @@ export const getPublisher = () => async (dispatch, getState) => {
 export const getAuthor = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/author/all/' + getState().bookReducers.author.page)
+        res = await axios.get(`/author/all/${getState().bookReducers.author.page}`)
     }
     catch(err) {
         return
@@ -134,7 +133,7 @@ export const addCategory =  (name) => async (dispatch, getState) => {
     dispatch(resetCategory())
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/addcategory', {
+        res = await axios.post(`/admin/addcategory`, {
             name: name
         })
     }
@@ -149,7 +148,7 @@ export const addCategory =  (name) => async (dispatch, getState) => {
 export const updateCategory =  (id, name) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/updatecategory', {
+        res = await axios.post(`/admin/updatecategory`, {
             id: id,
             name: name
         })
@@ -180,7 +179,7 @@ export const addAuthor =  (name) => async (dispatch, getState) => {
     dispatch(resetAuthor())
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/addauthor', {
+        res = await axios.post(`/admin/addauthor`, {
             name: name
         })
     }
@@ -195,7 +194,7 @@ export const addAuthor =  (name) => async (dispatch, getState) => {
 export const updateAuthor =  (id, name) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/updateauthor', {
+        res = await axios.post(`/admin/updateauthor`, {
             id: id,
             name: name
         })
@@ -226,7 +225,7 @@ export const addPublisher =  (name) => async (dispatch, getState) => {
     dispatch(resetPublisher())
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/addpublisher', {
+        res = await axios.post(`/admin/addpublisher`, {
             name: name
         })
     }
@@ -241,7 +240,7 @@ export const addPublisher =  (name) => async (dispatch, getState) => {
 export const updatePublisher =  (id, name) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/updatepublisher', {
+        res = await axios.post(`/admin/updatepublisher`, {
             id: id,
             name: name
         })
@@ -348,7 +347,7 @@ export const addBook = (id_category, name, price, release_date, describe, id_nsx
     data.append('id_author', id_author)
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/addbook', data)
+        res = await axios.post(`/admin/addbook`, data)
     }
     catch(err) {
         dispatch(addBookFail())
@@ -370,7 +369,7 @@ export const updateBook = (id, name, id_category, price, release_date, describe,
     data.append('id_author', id_author)
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/updatebook', data)
+        res = await axios.post(`/admin/updatebook`, data)
     }
     catch(err) {
         dispatch(updateBookFail())
@@ -392,12 +391,12 @@ export const billSetTotalPage = (totalpage) => ({
     totalpage
 })
 export const getBill = (status) => async(dispatch, getState) => {
-    let link = "http://localhost:8080/bill/status/99"
+    let link = `/bill/status/99`
     if(status === "0") {
-        link = "http://localhost:8080/bill/status/0"
+        link = `/bill/status/0`
     }
     if(status === "1") {
-        link = "http://localhost:8080/bill/status/1"
+        link = `/bill/status/1`
     }
     let res = null
     try {
@@ -421,7 +420,7 @@ export const updateIssend = (name,id) => async (dispatch, getState) => {
     let res
     try {
         console.log(typeof name);
-        res = await axios.post('http://localhost:8080/bill/updateissend', {
+        res = await axios.post(`/bill/updateissend`, {
         name: name,
         id:id
         })
