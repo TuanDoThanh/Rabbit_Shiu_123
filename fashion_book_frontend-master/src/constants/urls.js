@@ -1,1 +1,1 @@
-export const API_URL =  process.env.API_URL | 'https://backend-rabbit-shiu-123.onrender.com';
+export const API_URL = 'https://backend-rabbit-shiu-123.onrender.com';
