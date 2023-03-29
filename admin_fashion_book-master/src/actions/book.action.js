@@ -1,9 +1,10 @@
 import axios from 'axios'
+import { API_URL } from '../constants/urls'
 import { bookTypes } from '../constants/action.types'
 export const getBook = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post('http://localhost:8080/book/allbook', {
+        res = await axios.post(`${API_URL}/book/allbook`, {
             page: getState().bookReducers.book.page,
             range: null
         })
@@ -54,7 +55,7 @@ export const publisherSetTotalPage = (totalpage) => ({
 export const deleteBook = (id) => async(dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/admin/deletebook/' +id)
+        res = await axios.get(`${API_URL}/admin/deletebook/${id}`)
     }
     catch (err) {
         console.log(err)
@@ -67,7 +68,7 @@ export const deleteBook = (id) => async(dispatch, getState) => {
 export const getCategory = () => async (dispatch, getState) =>  {
     let res
     try {
-        res = await axios.get('http://localhost:8080/category/all/' + getState().bookReducers.category.page)
+        res = await axios.get(`${API_URL}/${getState().bookReducers.category.page}`)
     }
     catch (err) {
         return
@@ -79,7 +80,7 @@ export const getCategory = () => async (dispatch, getState) =>  {
 export const getPublisher = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/publisher/all/' + getState().bookReducers.publisher.page)
+        res = await axios.get(`${API_URL}/publisher/all/${getState().bookReducers.publisher.page}`)
     }
     catch (err) {
         return

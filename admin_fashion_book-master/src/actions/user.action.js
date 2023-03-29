@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { API_URL } from '../constants/urls'
 import { userTypes } from '../constants/action.types'
 import storeConfig from '../config/store.config'
 export const setUser = (data) => ({
@@ -8,7 +9,7 @@ export const setUser = (data) => ({
 export const getUser = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/admin/getAllUser/' + getState().userReducers.user.page)
+        res = await axios.get(`${API_URL}/admin/getAllUser/${+ getState().userReducers.user.page}`)
     }
     catch (err) {
         console.log(err)
@@ -43,7 +44,7 @@ export const backPage = () => (dispatch, getState) => {
 export const deleteUser = (email) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/deleteuser/',{
+        res = await axios.post(`${API_URL}/admin/deleteuser/`,{
             email: email
         })
     }
@@ -72,7 +73,7 @@ export const addUser = (email, password, firstName , lastName, address, phone_nu
     dispatch(resetUser())
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/adduser', {
+        res = await axios.post(`${API_URL}/admin/adduser`, {
             email: email,
             firstName: firstName,
             lastName: lastName,
@@ -93,7 +94,7 @@ export const addUser = (email, password, firstName , lastName, address, phone_nu
 export const updateUser = (email, firstName, lastName, address, phone_number, is_admin) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.post('http://localhost:8080/admin/updateuser', {
+        res = await axios.post(`${API_URL}/admin/updateuser`, {
             email: email,
             firstName: firstName,
             lastName: lastName,
@@ -133,7 +134,7 @@ export const auth = () => async (dispatch, getState)  => {
     console.log(email)
     let res
     try {
-        res = await axios.post('http://localhost:8080/auth', {
+        res = await axios.post(`${API_URL}/auth`, {
             email: email,
             token: token,
         })
