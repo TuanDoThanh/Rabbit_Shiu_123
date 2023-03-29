@@ -5,12 +5,11 @@ import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
+import { API_URL } from './constants/urls';
 import App from './containers/App'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
 const middleware = [ thunk ];
-
-import { API_URL } from './constants/urls';
 
 axios.defaults.baseURL = API_URL;
     
