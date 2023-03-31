@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import { API_URL } from "../constants/urls";
 import { bindActionCreators } from "redux";
 import Profile from "../components/profile/profile";
 import * as userActions from "../actions/user.action";
@@ -42,7 +43,7 @@ class ProfileContainer extends Component {
   updatePassword = async (oldpassword, newpassword) => {
     let res = null;
     try {
-      res = await axios.post("http://localhost:8080/user/updatepassword", {
+      res = await axios.post(`${API_URL}/user/updatepassword`, {
         email: storeConfig.getUser().email,
         oldpassword: oldpassword,
         newpassword: newpassword

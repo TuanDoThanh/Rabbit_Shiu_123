@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { API_URL } from "../constants/urls";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import NavbarContainer from "./navbar.container";
@@ -29,7 +30,7 @@ class StatisticalContainer extends Component {
     let res = null;
     try {
       res = await axios.post(
-        "http://localhost:8080/bill/statistical/revenue/day",
+        `${API_URL}/bill/statistical/revenue/day`,
         {
           day: date[2],
           month: date[1],
@@ -47,7 +48,7 @@ class StatisticalContainer extends Component {
     let res = null;
     try {
       res = await axios.post(
-        "http://localhost:8080/bill/statistical/revenue/month",
+        `${API_URL}/bill/statistical/revenue/month`,
         {
           month: date[1],
           year: date[0]
@@ -63,7 +64,7 @@ class StatisticalContainer extends Component {
     let res = null;
     try {
       res = await axios.post(
-        "http://localhost:8080/bill/statistical/revenue/year",
+        `${API_URL}/bill/statistical/revenue/year`,
         {
           year: year
         }
@@ -78,7 +79,7 @@ class StatisticalContainer extends Component {
     let res = null;
     try {
       res = await axios.post(
-        "http://localhost:8080/bill/statistical/revenue/quauter",
+        `${API_URL}/bill/statistical/revenue/quauter`,
         {
           year: year,
           quauter: quauter

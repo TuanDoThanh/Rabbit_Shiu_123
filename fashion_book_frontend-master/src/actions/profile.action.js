@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { API_URL } from "../constants/urls";
 import storeConfig from '../config/storage.config'
 import { profileTypes } from '../constants/action.types'
 export const auth = () => async (dispatch, getState) => {
@@ -8,7 +9,7 @@ export const auth = () => async (dispatch, getState) => {
     }
     const user = storeConfig.getUser()
     try {
-        await axios.post('http://localhost:8080/auth', {
+        await axios.post(`${API_URL}/auth`, {
             email: user.email,
             token: storeConfig.getToken(),
         })
@@ -39,7 +40,7 @@ export const resetProfile = () => ({
 export const updateInfor = (email, firstName, lastName, address, phone_number ) => async (dispatch, getState) => {
     let res
     try {
-            res =  await axios.post('http://localhost:8080/user/updateinfor', {
+            res =  await axios.post(`${API_URL}/user/updateinfor`, {
             email: email,
             firstName: firstName,
             lastName: lastName,

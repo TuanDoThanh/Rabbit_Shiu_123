@@ -1,9 +1,10 @@
 import axios from 'axios'
+import { API_URL } from "../constants/urls";
 import { homeTypes, sortTypes } from '../constants/action.types'
 export const getCategory = () => async (dispatch, getState) =>  {
     let res
     try {
-        res = await axios.get('http://localhost:8080/category')
+        res = await axios.get(`${API_URL}/category`)
     }
     catch (err) {
         return
@@ -14,7 +15,7 @@ export const getCategory = () => async (dispatch, getState) =>  {
 export const getPublisher = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/publisher')
+        res = await axios.get(`${API_URL}/publisher`)
     }
     catch (err) {
         return
@@ -25,7 +26,7 @@ export const getPublisher = () => async (dispatch, getState) => {
 export const getAuthor = () => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get('http://localhost:8080/author')
+        res = await axios.get(`${API_URL}/author`)
     }
     catch(err) {
         return
@@ -62,13 +63,13 @@ export const getBook = () => async (dispatch, getState) => {
         sortorder = '1'
     }
     let branch = getState().homeReducers.book.branch
-    let _link = 'http://localhost:8080/book/allbook'
+    let _link = `${API_URL}/book/allbook`
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = `${API_URL}/book/category`
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = `${API_URL}/book/publisher`
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = `${API_URL}/book/author`
     }
     let res
     try {
@@ -164,13 +165,13 @@ export const setSortType = (sortType) => async (dispatch, getState) => {
     }
     dispatch(setSort(sortType, sortorder))
     let branch = getState().homeReducers.book.branch
-    let _link = 'http://localhost:8080/book/allbook'
+    let _link = `${API_URL}/book/allbook`
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = `${API_URL}/book/category`
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = `${API_URL}/book/publisher`
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = `${API_URL}/book/author`
     }
     let res
     try {
@@ -226,13 +227,13 @@ export const setRangeType = (range) => async (dispatch, getState) => {
         sortorder = '1'
     }
     let branch = getState().homeReducers.book.branch
-    let _link = 'http://localhost:8080/book/allbook'
+    let _link = `${API_URL}/book/allbook`
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = `${API_URL}/book/category`
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = `${API_URL}/book/publisher`
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = `${API_URL}/book/author`
     }
     let res
     try {
@@ -273,13 +274,13 @@ export const setRange = (range) => ({
  })
 
  export const branchClick = (branch, id) => async (dispatch, getState)=> {
-    let _link = 'http://localhost:8080/book/allbook'
+    let _link = `${API_URL}/book/allbook`
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = `${API_URL}/book/category`
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = `${API_URL}/book/publisher`
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = `${API_URL}/book/author`
     }
     let res
     try {
@@ -331,13 +332,13 @@ export const setRange = (range) => ({
         sortorder = '1'
     }
     let branch = getState().homeReducers.book.branch
-    let _link = 'http://localhost:8080/book/allbook'
+    let _link = `${API_URL}/book/allbook`
     if(branch === 'category') { 
-        _link = 'http://localhost:8080/book/category'
+        _link = `${API_URL}/book/category`
     } else if (branch === 'publisher') {
-        _link = 'http://localhost:8080/book/publisher'
+        _link = `${API_URL}/book/publisher`
     } else if(branch === 'author') {
-        _link = 'http://localhost:8080/book/author'
+        _link = `${API_URL}/book/author`
     }
     let res
     try {
