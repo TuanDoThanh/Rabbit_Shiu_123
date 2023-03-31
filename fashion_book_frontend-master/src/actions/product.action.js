@@ -5,7 +5,7 @@ import storeConfig from '../config/storage.config'
 export const getBookDetail = (id) => async (dispatch, getState) => {
     let res
     try {
-        res = await axios.get(`${API_URL}/book/detail/${id}`)
+        res = await axios.get(`${API_URL}/book/${id}`)
     }
     catch (err) {
         return
