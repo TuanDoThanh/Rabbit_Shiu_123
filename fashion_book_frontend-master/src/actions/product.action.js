@@ -34,9 +34,10 @@ export const getNameCategoryByID = (id) => async (dispatch) => {
     dispatch(setNameCategory(res.data.name))
 }
 export const getNamePubliserByID = (id) => async (dispatch) => {
+    console.log("getNamePubliserByID:", id)
     let res
     try {
-        res = await axios.get(`${API_URL}/publisher/name/ ${id}`)
+        res = await axios.get(`${API_URL}/publisher/name/${id}`)
     }
     catch (err) {
         return
