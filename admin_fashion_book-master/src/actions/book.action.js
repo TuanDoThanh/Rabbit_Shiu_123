@@ -67,7 +67,7 @@ export const deleteBook = (id) => async(dispatch, getState) => {
 export const getCategory = () => async (dispatch, getState) =>  {
     let res
     try {
-        res = await axios.get(`/${getState().bookReducers.category.page}`)
+        res = await axios.get(`/category/all/${getState().bookReducers.category.page}`)
     }
     catch (err) {
         return
