@@ -10,7 +10,7 @@ class ContentHome extends Component {
       check_2: false,
       check_3: false,
       check_4: false,
-      check_5: false
+      check_5: false,
     };
   }
   componentWillMount() {
@@ -69,10 +69,13 @@ class ContentHome extends Component {
       check_2: false,
       check_3: false,
       check_4: false,
-      check_5: false
+      check_5: false,
     });
   };
+
   render() {
+    console.log("this.props.book", this.props.book);
+
     return (
       <section className="ss_product">
         <div className="container">
@@ -86,7 +89,7 @@ class ContentHome extends Component {
                       <div
                         key={index}
                         onClick={() => {
-                        this.resetCheck()
+                          this.resetCheck();
                           this.props.setTitle(element.name);
                           this.props.setBranch("category");
                           this.props.setIDBranch(element._id);
@@ -103,7 +106,7 @@ class ContentHome extends Component {
                     );
                   })}
                 </div>
-            
+
                 <div className="price-range">
                   <h2>Giá tiền</h2>
                   <div className="well ">
@@ -119,7 +122,8 @@ class ContentHome extends Component {
                           type="radio"
                           name="optradio"
                           checked={this.state.check_1}
-                        />All price
+                        />
+                        All price
                       </label>
                     </div>
                     <div className="radio item-price">
@@ -134,7 +138,8 @@ class ContentHome extends Component {
                           type="radio"
                           name="optradio"
                           checked={this.state.check_2}
-                        />0 ---- 50.000
+                        />
+                        0 ---- 50.000
                       </label>
                     </div>
                     <div className="radio item-price">
@@ -149,7 +154,8 @@ class ContentHome extends Component {
                           type="radio"
                           name="optradio"
                           checked={this.state.check_3}
-                        />50.000 ---- 100.000 
+                        />
+                        50.000 ---- 100.000
                       </label>
                     </div>
                     <div className="radio item-price">
@@ -157,20 +163,27 @@ class ContentHome extends Component {
                         onClick={() => {
                           this.resetCheck();
                           this.setState({ check_4: true });
-                          this.props.setRangeType({ low: 100000, high: 150000 });
+                          this.props.setRangeType({
+                            low: 100000,
+                            high: 150000,
+                          });
                         }}
                       >
                         <input
                           type="radio"
                           name="optradio"
                           checked={this.state.check_4}
-                        />100.000 ---- 150.000
+                        />
+                        100.000 ---- 150.000
                       </label>
                     </div>
                     <div className="radio item-price">
                       <label
                         onClick={() => {
-                          this.props.setRangeType({ low: 150000, high: 1500000 });
+                          this.props.setRangeType({
+                            low: 150000,
+                            high: 1500000,
+                          });
                           this.resetCheck();
                           this.setState({ check_5: true });
                         }}
@@ -180,7 +193,7 @@ class ContentHome extends Component {
                           name="optradio"
                           checked={this.state.check_5}
                         />{" "}
-                          150.000
+                        150.000
                       </label>
                     </div>
                   </div>
@@ -188,9 +201,9 @@ class ContentHome extends Component {
               </div>
             </div>
 
-            <div className="col-sm-9 padding-right">
-              <div className="features_items">
-                <h2 className="title text-center">
+            <div className="col-sm-9">
+              <div className="features_items col-sm-12">
+                <h2 className="title text-center col-sm-12">
                   {this.props.title}
                 </h2>
                 {this.props.book.map((element, index) => {
@@ -202,12 +215,14 @@ class ContentHome extends Component {
                       describe={element.describe}
                       id={element._id}
                       name={element.name}
-                      addToCart={product => this.props.addToCart(product)}
+                      addToCart={(product) => this.props.addToCart(product)}
                     />
                   );
                 })}
               </div>
-              <div className='Pagination-flex'>{this.renderPagination()}</div>
+              <div className="Pagination-flex col-sm-12">
+                {this.renderPagination()}
+              </div>
             </div>
           </div>
         </div>
