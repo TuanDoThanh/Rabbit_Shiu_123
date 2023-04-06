@@ -178,7 +178,7 @@ class Category extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel ">
-              <header className="panel-heading">Advanced Table</header>
+              {/* <header className="panel-heading">Advanced Table</header> */}
               <table className="table table-striped table-advance table-hover ">
                 <tbody>
                   <tr>

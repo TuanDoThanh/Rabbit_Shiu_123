@@ -318,7 +318,7 @@ class ContentProductDetail extends Component {
                                 <div className="single-products">
                                   <div className="productinfo text-center">
                                     <a href={"/product/" + element._id}>
-                                      <img src={element.img} alt="" />
+                                      <img src={element.img} alt=""/>
                                       <h2>  {new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(element.price)}<sup>đ</sup></h2>
                                       <p>{element.describe}</p>{" "}
                                     </a>

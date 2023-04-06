@@ -8,7 +8,7 @@
 
       body {
         font-family: 'Roboto', sans-serif;
-      background-color: #fafefd;
+      background-color: #eff0f3;
         position: relative;
         font-weight:400px;
       }
@@ -27,6 +27,7 @@
       }
       .item-custom {
         cursor: pointer;
+        background-color: #fff;
       }
       a:focus {
         outline:none;
@@ -149,7 +150,7 @@
         box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
       }
       .ss_product{
-        margin-top: 90px;
+        padding-top: 90px;
       }
       .pd-top{
         padding-top: 40px;
@@ -818,7 +819,7 @@
       .left-sidebar h2:before{
         content: " ";
         position: absolute;
-        background: #fff;
+        background: #eff0f3;
         bottom: -6px;
         width: 130px;
         height: 30px;
@@ -830,7 +831,7 @@
       h2.title:before{
         content: " ";
         position: absolute;
-        background: #fff;
+        background: #eff0f3;
         bottom: -6px;
         width: 220px;
         height: 30px;
@@ -875,6 +876,8 @@
 
       .panel-group {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        background-color: #fff;
+        border-radius: 10px;
       }
       .panel-group .panel-heading + .panel-collapse .panel-body {
         border-top: 0 none;
@@ -949,12 +952,12 @@
       }
 
       .well {
-        background-color: #FFFFFF;
+        background-color: #fff;
         min-height: 20px;
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
         margin: 0px;
         /* border: 1px solid #F7F7F0; */
-        /* border-radius: 4px; */
+        border-radius: 10px;
         /* box-shadow: none; */
         /* margin-bottom: 20px; */
         /* padding: 35px; */
@@ -1020,8 +1023,10 @@
       .single-products {
         position: relative;
         min-height: 380px;
-        border: 2px solid #f15129;
-        border-radius: 20px;
+        /* border: 2px solid #f15129; */
+        border-radius: 10px;
+        background-color: #fff;
+
       }
 
 
@@ -1075,8 +1080,11 @@
         min-height: 175px;
         border-radius: 10px;
       }
-      .productinfo img:hover{
+      
+      .productinfo img:hover
+      {
         transform: scale(1.1);
+        transition: 0.3s;
       }
       .name-product{
         margin: 2rem 0;

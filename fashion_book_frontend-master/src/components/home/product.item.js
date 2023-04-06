@@ -12,9 +12,6 @@ const ProductItem = ({urlImg, price, name, id, book }) => (
                     <h2>Giá:</h2>
                     <Link to={'/product/' + id}><h2>{new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(price)}<sup>đ</sup></h2></Link>
                     </div>
-                    
-                    
-                  
                 </div>
             </div>
         </div>

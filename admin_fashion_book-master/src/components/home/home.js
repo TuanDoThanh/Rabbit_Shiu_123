@@ -31,7 +31,7 @@ class Home extends Component {
               </div>
             </div>
 
-            <div className="row">
+            {/* <div className="row">
               <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <div className="info-box blue-bg">
                   <i className="fa fa-cloud-download" />
@@ -61,22 +61,21 @@ class Home extends Component {
                   <div className="title">Stock</div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             
 
             <div className="row">
-              <div className="col-lg-9 col-md-12">
+              <div className="col-lg-12">
                 <div className="panel panel-default">
                   <div className="panel-heading">
                     <h2>
                       <i className="fa fa-flag-o red" />
                       <strong>
-                        Digital sales number(percent percentage of 1000
-                        products)
+                        Digital sales number(percent percentage of 1000 products)
                       </strong>
                     </h2>
-                    <div className="panel-actions">
+                    {/* <div className="panel-actions">
                       <a href="index.html#" className="btn-setting">
                         <i className="fa fa-rotate-right" />
                       </a>
@@ -86,17 +85,17 @@ class Home extends Component {
                       <a href="index.html#" className="btn-close">
                         <i className="fa fa-times" />
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="panel-body">
                     <table className="table bootstrap-datatable countries">
                       <thead>
                         <tr>
-                          <th />
+                          <th>Ảnh</th>
                           <th>Tên Sản Phẩm</th>
                           <th>Giá Tiền</th>
                           <th>Số Lượng Đã Bán</th>
-                          <th>Hiệu Xuất</th>
+                          {/* <th>Hiệu Xuất</th> */}
                         </tr>
                       </thead>
                       <tbody>
@@ -115,7 +114,7 @@ class Home extends Component {
                             <td>{element.name}</td>
                             <td>{element.price}</td>
                             <td>{element.count}</td>
-                            <td>
+                            {/* <td>
                               <div className="progress thin">
                                 <div
                                   className="progress-bar progress-bar-danger"
@@ -127,7 +126,7 @@ class Home extends Component {
                                 />
                               </div>
                               <span className="sr-only">73%</span>
-                            </td>
+                            </td> */}
                           </tr>
                           ) 
                         })}
