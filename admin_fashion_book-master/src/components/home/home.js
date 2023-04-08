@@ -104,10 +104,7 @@ class Home extends Component {
                             <tr>
                             <td>
                               <div className='home-image'>
-                                <img
-                                  src={element.img}
-                                  
-                                />
+                                <img src={element.img}/>
                               </div>
                               
                             </td>

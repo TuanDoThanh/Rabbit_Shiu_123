@@ -47,6 +47,7 @@ const Home = ({ islogin, logout, category,
                 setIDBranch={(id) => setIDBranch(id)}
                 branchClick={(branch, id) => branchClick(branch, id)}
                 addToCart={(product) => addToCart(product)}
+                
             />
             <footer id="footer">
                 <FooterTop />
