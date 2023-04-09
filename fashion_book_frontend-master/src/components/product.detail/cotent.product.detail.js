@@ -129,9 +129,9 @@ class ContentProductDetail extends Component {
           X
         </div>
       <div className='aler-title'>
-        <h3 className='title'>Thông Tin Đơn Hàng</h3>
+        <h3 className='title'>The product has been added to cart</h3>
       </div>
-      <div className='aler-body'>Đặt Hàng thành công</div>
+      <div className='aler-body'>Added to cart</div>
       <div className='alert-footer'>
         <button className="roduct-variation" onClick={() => this.setState({ noti: false })}>
           Cancel
@@ -141,35 +141,19 @@ class ContentProductDetail extends Component {
     </div>
     }
     return (
-      <section className="ss_product">
-        <div className="container pd-top">
+      <section className="ss_product ss-bestselling mg-top">
+        <div className="container">
           <div className="row">
-            <div className="col-sm-3">
-              <div className="left-sidebar">
-                <h2>Category</h2>
-                <div className="panel-group category-products" id="accordian">
-                  {this.props.category.map((element, index) => {
-                    return (
-                      <div key={index} className="panel panel-default">
-                        <div className="panel-heading">
-                          <h4 className="panel-title">
-                            <a key={index}>{element.name}</a>
-                          </h4>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                
-              </div>
-            </div>
-            <div className="col-sm-9 padding-right">
+            <div className="col-sm-12">
               <div className="product-details">
+                <div className="row col-sm-12">
+                <div className="col-sm-9">
+                  
+                <div className="row col-sm-12">
                 <div className="col-sm-5">
-                  <div className="view-product">
-                    <img src={this.props.mproductDetail.img} alt="" />
+                  <div  className="view-product">
+                  <img src={this.props.mproductDetail.img} alt=""/>
                   </div>
-                 
                 </div>
                 <div className="col-sm-7">
                   <div className="product-information">
@@ -183,10 +167,16 @@ class ContentProductDetail extends Component {
                    
                     <img src="images/product-details/rating.png" alt="" />
 
-                    <span>
+                    <span className="product-content-detail">
                       <div>
-                        <span>Giá:</span>
-                        <span>{this.props.mproductDetail.price}</span>
+                      <div class="bestselling__product-rate-wrap">
+                          <i class="fas fa-star bestselling__product-rate"></i>
+                          <i class="fas fa-star bestselling__product-rate"></i>
+                          <i class="fas fa-star bestselling__product-rate"></i>
+                          <i class="fas fa-star bestselling__product-rate"></i>
+                          <i class="fas fa-star bestselling__product-rate"></i>
+                        </div>
+                        <span>{this.props.mproductDetail.price}<sup>đ</sup></span>
                         
                       </div>
                       <div className='count-product'>
@@ -205,28 +195,19 @@ class ContentProductDetail extends Component {
                         type="button"
                         className="btn btn-default cart"
                       >
-                        <i className="fa fa-shopping-cart" />
+                      <i className="fa fa-shopping-cart"/>
                         Add to cart
                       </button>
+                      <Link className="text-ctn-drtail" to={"/cart"}>
+                      <button type="button" className="btn cart btn-buy-now-detail">
+                        <i className="fa fa-regular fa-heart"/>
+                          Buy Now
+                        </button>
+                      </Link>
+                      
                     </span>
                     <p>{this.state.noti}</p>
-                    <p>
-                      <b>Category:</b> {this.props.nameCategory}
-                    </p>
-                    <p>
-                      <b>Release date </b>{" "}
-                      {new Date(
-                        this.props.mproductDetail.release_date
-                      ).toDateString("yyyy-MM-dd")}
-                    </p>
-                    <p>
-                      <b>Publisher:</b> {this.props.namePublicsher}
-                    </p>
-                    <p>
-                      <b>Author:</b> {this.props.nameAuthor}
-                    </p>
                     </div>
-                   
                   </div>
                   <Modal
                     show={this.state.show}
@@ -239,7 +220,7 @@ class ContentProductDetail extends Component {
                         showfication
                       </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Đặt Hàng Thành Công</Modal.Body>
+                    <Modal.Body>Added to cart</Modal.Body>
                     <Modal.Footer>
                       <Button onClick={() => this.setState({ show: false })}>
                         <a>Cancel</a>
@@ -249,31 +230,75 @@ class ContentProductDetail extends Component {
                   </Modal>
                 </div>
                 {xhtml}
-               
-                  <div className="col-sm-12 review-product">
-                    <div>
-                      <h3>Review Sách</h3>
-                    </div>
-                   
-                  </div>
-                  <div className="tab-content">
-
-                    <div className="tab-pane fade active in" id="reviews">
-                      <div className="col-sm-12">
-                        <div className="content-conment">
+                </div>
+                <div className="row col-sm-12 pd-top-40">
+                <div className="infoms row  tb-mg-l">
+                    <div className="Deccribe">Deccribe</div>
+                </div>  
+                  
+                <div class="row table-responsive  tb-mg-l">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <th>Category</th>
+                        <td>{this.props.nameCategory}</td>
+                      </tr>
+                      <tr>
+                        <th>Release date </th><td>{" "}
+                            {new Date(
+                            this.props.mproductDetail.release_date
+                            ).toDateString("yyyy-MM-dd")}
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Publisher</th>
+                        <td>{this.props.namePublicsher}</td>
+                      </tr>
+                      <tr>
+                        <th>Author</th>
+                        <td>{this.props.nameAuthor}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                </div>
+                <div className="row col-sm-12 pd-top-40">
+                <div className="infoms row  tb-mg-l">
+                    <div className="Deccribe">Reviews</div>
+                </div> 
+                <div className="tab-content">
+                <div className="content-conment">
                           {this.props.comment.map((element, index) => {
                             return (
-                              <p>
-                                <span  className="cmt-product">{element.name}:</span> <span  className="cmt-product">{element.comment}</span>
-                              </p>
+                                <div className="row commets-ss">
+                                  <div className="avt col-sm-1">
+                                    <img src="/assets/images/home/avt.png"></img>
+                                  </div>
+                                  <div className="product-cmt col-sm-11">
+                                    <div className="name-cmt">{element.name}</div>
+                                    <div class="bestselling__product-rate-wrap">
+                                        <i class="fas fa-star bestselling__product-rate"></i>
+                                        <i class="fas fa-star bestselling__product-rate"></i>
+                                        <i class="fas fa-star bestselling__product-rate"></i>
+                                        <i class="fas fa-star bestselling__product-rate"></i>
+                                        <i class="fas fa-star bestselling__product-rate"></i>
+                                    </div>
+                                    <div className="cmt-cmt">{element.comment}</div>
+                                  </div> 
+                                </div>
                             );
                           })}
                           <div className='Pagination-flex'>
                             {this.renderPagination()}
                           </div>
-                         
                         </div>
-                        <hr />
+                </div>                 
+
+                <div className="tab-content">
+                    <div className="tab-pane fade active in" id="reviews">
+                      <div className="col-sm-12">
+                        
+                        {/* <hr />
                         <p style={{ color: "#5BBCEC" }}>
                           {this.state.notificationComment}
                         </p>
@@ -296,67 +321,79 @@ class ContentProductDetail extends Component {
                           >
                             Bình Luận
                           </button>
-                        </form>
+                        </form> */}
                       </div>
                     </div>
-                  </div>
-             
-                <div className="col-sm-12 recommended_items">
-                  <h2 className="title text-center">recommended items</h2>
-
-                  <div
-                    id="recommended-item-carousel"
-                    className="carousel slide"
-                    data-ride="carousel"
-                  >
-                    <div className="carousel-inner">
-                      <div className="item active">
+                  </div> 
+                </div>
+          </div>
+                <div className="recommended_div col-sm-3 col-md-0 col-sm-0">
+                    <div class="product__aside-top">
+                        <div class="product__aside-top-item">
+                            <img src="/assets/images/home/shipper.png"/>
+                            <div class="product__aside-top-item-text">
+                                <p>
+                                    Fast shipping
+                                </p>
+                                <span>
+                                    In just 24 hours
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product__aside-top-item">
+                            <img src="/assets/images/home/brand.png"/>
+                            <div class="product__aside-top-item-text">
+                                <p>
+                                    Genuine product
+                                </p>
+                                <span>
+                                    100% imported products
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product__aside-top-item">
+                            <img src="/assets/images/home/less.png"/>
+                            <div class="product__aside-top-item-text">
+                                <p>
+                                    Buy savings
+                                </p>
+                                <span>
+                                    10% to 30% cheaper
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__aside-bottom">
+                    <div className="infoms row  tb-mg-l">
+                      <div className="recommended">Recommended</div>
+                      </div> 
+                    </div>
+                    <div className="recommended_items">
                         {this.props.bookrelated.map((element, index) => {
                           return (
-                            <div className="col-sm-4">
+                            <div className="recommended_div col-sm-12">
                               <div className="product-image-wrapper">
                                 <div className="single-products">
-                                  <div className="productinfo text-center">
-                                    <a href={"/product/" + element._id}>
-                                      <img src={element.img} alt=""/>
-                                      <h2>  {new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(element.price)}<sup>đ</sup></h2>
-                                      <p>{element.describe}</p>{" "}
+                                    <a className="row" href={"/product/" + element._id}>
+                                      <img className="recommended_img col-sm-6" src={element.img} alt=""/>
+                                      <div className="recommended_div col-sm-6">
+                                        <h2 className="recommended_h2">  {new Intl.NumberFormat('de-DE', {currency: 'EUR' }).format(element.price)}<sup>đ</sup></h2>
+                                        <p className="recommended_p">{element.name}</p>{" "}
+                                      </div>
                                     </a>
-                                    <button
-                                      onClick={() => {
-                                        element.count = 1;
-                                        this.props.addToCart(element);
-                                      }}
-                                      type="button"
-                                      className="btn btn-default add-to-cart"
-                                    >
-                                      <i className="fa fa-shopping-cart" />Add
-                                      to cart
-                                    </button>
-                                  </div>
                                 </div>
                               </div>
                             </div>
                           );
                         })}
-                      </div>
+                      
                     </div>
-                    <a
-                      className="left recommended-item-control"
-                      href="#recommended-item-carousel"
-                      data-slide="prev"
-                    >
-                      <i className="fa fa-angle-left" />
-                    </a>
-                    <a
-                      className="right recommended-item-control"
-                      href="#recommended-item-carousel"
-                      data-slide="next"
-                    >
-                      <i className="fa fa-angle-right" />
-                    </a>
-                  </div>
+
+
                 </div>
+
+                </div>
+                
               </div>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { API_URL } from "../constants/urls";
-import { homeTypes, sortTypes } from '../constants/action.types'
+import { homeTypes, sortTypes } from '../constants/action.types';
+
+
 export const getCategory = () => async (dispatch, getState) =>  {
     let res
     try {

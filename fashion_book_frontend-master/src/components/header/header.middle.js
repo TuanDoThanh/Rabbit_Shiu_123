@@ -115,8 +115,6 @@ handeSearch = (e) => {
                                 />
                             </div>
                         </div>
-
-
             <div className="col-sm-4">
               <div className="shop-menu pull-right">
               <ul className="nav navbar-nav collapse navbar-collapse">
@@ -126,8 +124,6 @@ handeSearch = (e) => {
                     </a>
                       {this.hoverlogin()}
                 </li>
-                 
-                 
                   <li>
                     <Link to={"/cart"}>
                       <i className="fa fa-shopping-cart" />

@@ -80,7 +80,7 @@ class ContentHome extends Component {
 
     return (
       
-      <section className="ss_product">
+      <section className="ss_product pd-top">
         <div className="container ss-slider">
           <div class="row menu-slide">
                 <div class="product__sidebar-img-wrap col-lg-4 col-md-0 col-sm-3">
@@ -122,6 +122,9 @@ class ContentHome extends Component {
                     <img src="/assets/images1/slide RB/bestselling.png" alt="Selling products" class="bestselling__heading-img"/>
                     <div class="bestselling__heading">Top best sellers of the week</div>
                 </div>
+          </div>
+          <div className="row">
+          
           </div>
         </div>
         </div>
