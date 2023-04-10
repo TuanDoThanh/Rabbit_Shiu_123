@@ -9,22 +9,22 @@ const user = new Schema({
     lowercase: true,
     match: [/\S+@\S+\.\S+/, "is invalid"],
   },
-  // firstName: {
-  //   type: String,
-  // },
-  // lastName: {
-  //   type: String,
-  // },
+  firstName: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+  },
   password: {
     type: String,
     required: [true, "can't be blank"],
   },
-  // address: {
-  //   type: String,
-  // },
-  // phone_number: {
-  //   type: String,
-  // },
+  address: {
+    type: String,
+  },
+  phone_number: {
+    type: String,
+  },
   is_admin: {
     type: Boolean,
     default: false,

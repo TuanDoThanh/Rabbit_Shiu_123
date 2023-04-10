@@ -9,11 +9,11 @@ const otp = require("../utils/otp");
 exports.register = async (req, res) => {
   if (
     typeof req.body.email === "undefined" ||
-    typeof req.body.password === "undefined"
-    // typeof req.body.firstName === "undefined" ||
-    // typeof req.body.lastName === "undefined" ||
-    // typeof req.body.address === "undefined" ||
-    // typeof req.body.phone_number === "undefined"
+    typeof req.body.password === "undefined" ||
+    typeof req.body.firstName === "undefined" ||
+    typeof req.body.lastName === "undefined" ||
+    typeof req.body.address === "undefined" ||
+    typeof req.body.phone_number === "undefined"
   ) {
     res.status(422).json({ msg: "Invalid data" });
     return;
@@ -47,11 +47,11 @@ exports.register = async (req, res) => {
   password = bcrypt.hashSync(password, 10);
   const newUser = new user({
     email: email,
-    // firstName: firstName,
-    // lastName: lastName,
+    firstName: firstName,
+    lastName: lastName,
     password: password,
-    // address: address,
-    // phone_number: phone_number,
+    address: address,
+    phone_number: phone_number,
     token: token,
   });
   try {
@@ -133,10 +133,10 @@ exports.login = async (req, res) => {
     token: token,
     user: {
       email: userFind.email,
-      // firstName: userFind.firstName,
-      // lastName: userFind.lastName,
-      // address: userFind.address,
-      // phone_number: userFind.phone_number,
+      firstName: userFind.firstName,
+      lastName: userFind.lastName,
+      address: userFind.address,
+      phone_number: userFind.phone_number,
       id: userFind._id,
     },
   });
@@ -245,10 +245,10 @@ exports.forgotPassword = async (req, res) => {
 
 exports.updateInfor = async (req, res) => {
   if (
-    // typeof req.body.firstName === "undefined" ||
-    // typeof req.body.lastName === "undefined" ||
-    // typeof req.body.address === "undefined" ||
-    // typeof req.body.phone_number === "undefined" ||
+    typeof req.body.firstName === "undefined" ||
+    typeof req.body.lastName === "undefined" ||
+    typeof req.body.address === "undefined" ||
+    typeof req.body.phone_number === "undefined" ||
     typeof req.body.email === "undefined"
   ) {
     res.status(422).json({ msg: "Invalid data" });
@@ -266,10 +266,10 @@ exports.updateInfor = async (req, res) => {
     res.status(422).json({ msg: "not found" });
     return;
   }
-  // userFind.firstName = firstName;
-  // userFind.lastName = lastName;
-  // userFind.address = address;
-  // userFind.phone_number = phone_number;
+  userFind.firstName = firstName;
+  userFind.lastName = lastName;
+  userFind.address = address;
+  userFind.phone_number = phone_number;
   try {
     await userFind.save();
   } catch (err) {
@@ -282,10 +282,10 @@ exports.updateInfor = async (req, res) => {
     token: token,
     user: {
       email: userFind.email,
-      // firstName: userFind.firstName,
-      // lastName: userFind.lastName,
-      // address: userFind.address,
-      // phone_number: userFind.phone_number,
+      firstName: userFind.firstName,
+      lastName: userFind.lastName,
+      address: userFind.address,
+      phone_number: userFind.phone_number,
       id: userFind._id,
     },
   });

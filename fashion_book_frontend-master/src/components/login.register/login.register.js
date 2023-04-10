@@ -27,10 +27,10 @@ const Home = ({ setEmailogin, setPasswordlogin, setEmail,
                 setEmailogin={(value) => setEmailogin(value)}
                 setPasswordlogin={(value) => setPasswordlogin(value)}
                 setEmail={(value) => setEmail(value)}
-                // setFirstname={(value) => setFirstname(value)}
-                // setLastname={(value) => setLastname(value)}
-                // setAddress={(value) => setAddress(value)}
-                // setPhone={(value) => setPhone(value)}
+                setFirstname={(value) => setFirstname(value)}
+                setLastname={(value) => setLastname(value)}
+                setAddress={(value) => setAddress(value)}
+                setPhone={(value) => setPhone(value)}
                 setPassword={(value) => setPassword(value)}
                 setConfirm={(value) => setConfirm(value)}
                 notificationRegister={notificationRegister}
