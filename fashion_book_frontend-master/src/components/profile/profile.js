@@ -93,7 +93,7 @@ class Profile extends Component {
         placeholder="Email"
         value={this.props.email}
       />
-      <input
+      {/* <input
         type="text"
         placeholder="First name"
         value={this.props.firstName}
@@ -116,7 +116,7 @@ class Profile extends Component {
         placeholder="Phone number"
         value={this.props.phone_number}
         onChange={e => this.props.setPhoneNumber(e.target.value)}
-      />
+      /> */}
       <button
         onClick={() => this.props.updateInfor()}
         className="btn btn-default"

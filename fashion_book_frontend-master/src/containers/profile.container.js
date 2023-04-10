@@ -13,10 +13,10 @@ class ProfileContainer extends Component {
     super(props);
     this.state = {
       email: null,
-      firstName: null,
-      lastName: null,
-      address: null,
-      phone_number: null,
+      // firstName: null,
+      // lastName: null,
+      // address: null,
+      // phone_number: null,
       notiupdatePassword: null
     };
   }
@@ -30,10 +30,10 @@ class ProfileContainer extends Component {
     if (storeConfig.getUser() !== null) {
       this.setState({
         email: storeConfig.getUser().email,
-        firstName: storeConfig.getUser().firstName,
-        lastName: storeConfig.getUser().lastName,
-        address: storeConfig.getUser().address,
-        phone_number: storeConfig.getUser().phone_number
+        // firstName: storeConfig.getUser().firstName,
+        // lastName: storeConfig.getUser().lastName,
+        // address: storeConfig.getUser().address,
+        // phone_number: storeConfig.getUser().phone_number
       });
     }
   }
@@ -69,21 +69,21 @@ class ProfileContainer extends Component {
             islogin={this.props.islogin}
             logout={() => this.props.actions.logout()}
             email={this.state.email}
-            firstName={this.state.firstName}
-            lastName={this.state.lastName}
-            address={this.state.address}
-            phone_number={this.state.phone_number}
-            setFirstName={value => this.setState({ firstName: value })}
-            setLastName={value => this.setState({ lastName: value })}
-            setAddress={value => this.setState({ address: value })}
-            setPhoneNumber={value => this.setState({ phone_number: value })}
+            // firstName={this.state.firstName}
+            // lastName={this.state.lastName}
+            // address={this.state.address}
+            // phone_number={this.state.phone_number}
+            // setFirstName={value => this.setState({ firstName: value })}
+            // setLastName={value => this.setState({ lastName: value })}
+            // setAddress={value => this.setState({ address: value })}
+            // setPhoneNumber={value => this.setState({ phone_number: value })}
             updateInfor={() =>
               this.props.profileActions.updateInfor(
                 this.state.email,
-                this.state.firstName,
-                this.state.lastName,
-                this.state.address,
-                this.state.phone_number
+                // this.state.firstName,
+                // this.state.lastName,
+                // this.state.address,
+                // this.state.phone_number
               )
             }
             isupdate={this.props.isupdate}

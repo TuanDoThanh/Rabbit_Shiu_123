@@ -12,10 +12,10 @@ class LoginRegisterContainer extends Component {
             emailLogin: '',
             passwordLogin: '',
             email: '',
-            firstname: '',
-            lastname: '',
-            address: '',
-            phone: '',
+            // firstname: '',
+            // lastname: '',
+            // address: '',
+            // phone: '',
             password: '',
             confirm: '',
             notificationRegister: '',
@@ -26,16 +26,16 @@ class LoginRegisterContainer extends Component {
     componentWillMount() {
         this.props.actions.auth()
     }
-    isvalidFirstName = (firstName) => {
-        if(firstName === '')
-            return false
-        return true
-    }
-    isvalidLastName = (lastname) => {
-        if(lastname === '')
-            return false
-        return true
-    }
+    // isvalidFirstName = (firstName) => {
+    //     if(firstName === '')
+    //         return false
+    //     return true
+    // }
+    // isvalidLastName = (lastname) => {
+    //     if(lastname === '')
+    //         return false
+    //     return true
+    // }
     isvalidPassword = (password) => {
         if (password.length < 6)
             return false
@@ -70,26 +70,26 @@ class LoginRegisterContainer extends Component {
         } else {
             this.setState({ notificationRegister: '' })
         }
-        if (!this.isvalidFirstName(this.state.firstname)) {
-            this.setState({ notificationRegister: 'Firstname invalid' })
-            return
-        } else {
-            this.setState({ notificationRegister: '' })
-        }
-        if (!this.isvalidLastName(this.state.lastname)) {
-            this.setState({ notificationRegister: 'Lastname invalid' })
-            return
-        } else {
-            this.setState({ notificationRegister: '' })
-        }
+        // if (!this.isvalidFirstName(this.state.firstname)) {
+        //     this.setState({ notificationRegister: 'Firstname invalid' })
+        //     return
+        // } else {
+        //     this.setState({ notificationRegister: '' })
+        // }
+        // if (!this.isvalidLastName(this.state.lastname)) {
+        //     this.setState({ notificationRegister: 'Lastname invalid' })
+        //     return
+        // } else {
+        //     this.setState({ notificationRegister: '' })
+        // }
         try {
             await axios.post(`/user/register`, {
                 email: this.state.email,
                 password: this.state.password,
-                firstName: this.state.firstname,
-                lastName: this.state.lastname,
-                address: this.state.address,
-                phone_number: this.state.phone
+                // firstName: this.state.firstname,
+                // lastName: this.state.lastname,
+                // address: this.state.address,
+                // phone_number: this.state.phone
             })
         }
         catch (err) {
@@ -140,10 +140,10 @@ class LoginRegisterContainer extends Component {
                     setEmailogin={(value) => this.setState({ emailLogin: value })}
                     setPasswordlogin={(value) => this.setState({ passwordLogin: value })}
                     setEmail={(value) => this.setState({ email: value })}
-                    setFirstname={(value) => this.setState({ firstname: value })}
-                    setLastname={(value) => this.setState({ lastname: value })}
-                    setAddress={(value) => this.setState({ address: value })}
-                    setPhone={(value) => this.setState({ phone: value })}
+                    // setFirstname={(value) => this.setState({ firstname: value })}
+                    // setLastname={(value) => this.setState({ lastname: value })}
+                    // setAddress={(value) => this.setState({ address: value })}
+                    // setPhone={(value) => this.setState({ phone: value })}
                     notificationRegister={this.state.notificationRegister}
                     notificationLogin={this.state.notificationLogin}
                     setPassword={(value) => this.setState({ password: value })}

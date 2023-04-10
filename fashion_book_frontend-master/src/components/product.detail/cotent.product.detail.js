@@ -125,8 +125,8 @@ class ContentProductDetail extends Component {
     console.log(this.state.noti);
     if(this.state.noti){
       xhtml = <div className='aler-box'>
-        <div className='btn-close ' onClick={() => this.setState({ noti: false })}>
-          X
+        <div className='btn-close' onClick={() => this.setState({ noti: false })}>
+          x
         </div>
       <div className='aler-title'>
         <h3 className='title'>The product has been added to cart</h3>
@@ -225,7 +225,6 @@ class ContentProductDetail extends Component {
                       <Button onClick={() => this.setState({ show: false })}>
                         <a>Cancel</a>
                       </Button>
-                      
                     </Modal.Footer>
                   </Modal>
                 </div>

@@ -18,97 +18,128 @@ function ContentLoginRegister({ setEmailogin, setPasswordlogin, setEmail,
         let xhtmlLogin ='';
         let xhtmlRegister='';
         if(Login){
-            xhtmlLogin = <div className="login-form">
-            <div className='login-content col-sm-6'>
-            <h2>Login to your account</h2>
-            <div className="noti">{notificationLogin}</div>
-            <input type="email"
-                placeholder="Email address"
-                onChange={(e) => { setEmailogin(e.target.value) }}
-            />
-            <input type="password"
-                placeholder="Password"
-                onChange={(e) => { setPasswordlogin(e.target.value) }}
-            />
+            xhtmlLogin = 
+            <div className='login-ss'>
+            <div class="form-box">
+                <div class="form-value">
+                    <div>
+                        <h2 className='login-h2'>Login</h2>
+                        <div className="noti">{notificationLogin}</div>
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="email" 
+                            required placeholder=""
+                            onChange={(e) => {setEmailogin(e.target.value)}}/>
+                            <label className='login-label' for="">Email</label>
+                        </div>
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="password" 
+                            required placeholder=""
+                            onChange={(e) => {setPasswordlogin(e.target.value)}}/>
+                            <label className='login-label' for="">Password</label>
+                        </div>
+                        <div class="forget">
+                            <label className='login-label' for=""><input className='login-input' type="checkbox"/>Remember Me  <Link to='/forgotpass/'>Forget password?</Link></label>
                           
-            <button
-                className="btn btn-default"
-                onClick={() => loginSubmit()}
-            >Login</button>
-            <div className='forgotpassword'>
-                <Link to='/forgotpass/' >Quen Mat Khau?</Link>
+                        </div>
+                        <button className='login-btn' onClick={() => loginSubmit()}>Log in</button>
+                        <div class="register">
+                            <p>Don't have a account <a onClick={handleRegister}>Register?</a></p>
+                        </div>
+                    </div>
+                   
+                </div>
             </div>
-           
         </div>
         
-        </div>
         }
 
         if(Register){
-            xhtmlRegister =  <div className="signup-form">
-                <div className = 'login-content col-sm-6'>
-
-               
-            <h2>New User Signup!</h2>
-            <div className="noti">{notificationRegister}</div>
-
-            <input type="email"
-                placeholder="Email address"
-                onChange={(e) => { setEmail(e.target.value) }}
-            />
-            <input type="text"
-                placeholder="First name"
-                onChange={(e) => { setFirstname(e.target.value) }}
-            />
-            <input type="text"
-                placeholder="Last name"
-                onChange={(e) => { setLastname(e.target.value) }}
-            />
-            <input type="text"
-                placeholder="Address"
-                onChange={(e) => { setAddress(e.target.value) }}
-            />
-            <input type="number"
-                placeholder="Phone number"
-                onChange={(e) => { setPhone(e.target.value) }}
-            />
-            <input type="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <input type="password"
-                placeholder="Confirm"
-                onChange={(e) => { setConfirm(e.target.value) }}
-            />
-            <button
-                className="btn btn-default"
-                onClick={() => registerSubmit()}
-            >Signup
-                </button>
+            xhtmlRegister =  
+            <div className='login-ss'>
+            <div class="form-box">
+                <div class="form-value">
+                    <div>
+                        <h2 className='login-h2'>Register</h2>
+                        <div className="noti">{notificationRegister}</div>
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="email" 
+                            required placeholder=""
+                            onChange={(e) => {setEmail(e.target.value)}}/>
+                            <label className='login-label' for="">Email</label>
+                        </div>
+                        {/* <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="text" 
+                            required placeholder=""
+                            onChange={(e) => {setFirstname(e.target.value) }}/>
+                            <label className='login-label' for="">First Name</label>
+                        </div>
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="text" 
+                            required placeholder=""
+                            onChange={(e) => { setLastname(e.target.value) }}/>
+                            <label className='login-label' for="">Last Name</label>
+                        </div>
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="text" 
+                            required placeholder=""
+                            onChange={(e) => { setAddress(e.target.value) }}/>
+                            <label className='login-label' for="">Address</label>
+                        </div>
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="number" 
+                            required placeholder=""
+                            onChange={(e) => { setPhone(e.target.value) }}/>
+                            <label className='login-label' for="">Phone</label>
+                        </div> */}
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="password" 
+                            required placeholder=""
+                            onChange={(e) => setPassword(e.target.value)}/>
+                            <label className='login-label' for="">Password</label>
+                        </div>
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="password" 
+                            required placeholder=""
+                            onChange={(e) => {setConfirm(e.target.value) }}/>
+                            <label className='login-label' for="">Confirm</label>
+                        </div>
+                        <button className='login-btn' onClick={() => registerSubmit()}>Signup</button>
+                        <div class="register">
+                            <p>Do you already have an account? <a a onClick={handleLogin} >Log in</a></p>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
         </div>
-        </div>
+           
         }
         return(
-            <section className='ss_product pd-top'>
-                <div className="container login-register">
-                <div className='menu-profile'>
-                <ul>
-                  <li><button onClick={handleLogin} className='menu-custom btn'>Đăng Nhập</button></li>
-                  <li> <button onClick={handleRegister}  className='menu-custom btn '>Đăng Ký</button></li>
-                </ul>
-                <hr></hr>
-              </div>
-              <div>
-
-                    {xhtmlRegister}
-                     {xhtmlLogin}
-              </div>
-                     
-                        
-                       
-                   
-                      
-                </div>
+            <section className='ss_product'>
+                <div className="login-register">
+                        <div>
+                            {xhtmlRegister}
+                            {xhtmlLogin}
+                        </div>
+                    </div>
             </section>
         );
     }
