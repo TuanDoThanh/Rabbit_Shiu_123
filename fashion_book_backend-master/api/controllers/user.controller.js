@@ -9,16 +9,17 @@ const otp = require("../utils/otp");
 exports.register = async (req, res) => {
   if (
     typeof req.body.email === "undefined" ||
-    typeof req.body.password === "undefined" ||
-    typeof req.body.firstName === "undefined" ||
-    typeof req.body.lastName === "undefined" ||
-    typeof req.body.address === "undefined" ||
-    typeof req.body.phone_number === "undefined"
+    typeof req.body.password === "undefined"
+    // typeof req.body.firstName === "undefined" ||
+    // typeof req.body.lastName === "undefined" 
+    // typeof req.body.address === "undefined" ||
+    // typeof req.body.phone_number === "undefined"
   ) {
     res.status(422).json({ msg: "Invalid data" });
     return;
   }
-  let { email, password, firstName, lastName, address, phone_number } =
+  // , firstName, lastName, address, phone_number
+  let { email, password, firstName, lastName, address, phone_number} =
     req.body;
   if (
     (email.indexOf("@") === -1 && email.indexOf(".") === -1) ||
@@ -47,12 +48,13 @@ exports.register = async (req, res) => {
   password = bcrypt.hashSync(password, 10);
   const newUser = new user({
     email: email,
+    password: password,
     firstName: firstName,
     lastName: lastName,
-    password: password,
     address: address,
     phone_number: phone_number,
     token: token,
+    
   });
   try {
     await newUser.save();
