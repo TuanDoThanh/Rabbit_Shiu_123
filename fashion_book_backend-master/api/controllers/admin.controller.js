@@ -409,10 +409,10 @@ exports.addUser = async (req, res) => {
   if (
     typeof req.body.email === "undefined" ||
     typeof req.body.password === "undefined" ||
-    typeof req.body.firstName === "undefined" ||
-    typeof req.body.lastName === "undefined" ||
-    typeof req.body.address === "undefined" ||
-    typeof req.body.phone_number === "undefined" ||
+    // typeof req.body.firstName === "undefined" ||
+    // typeof req.body.lastName === "undefined" ||
+    // typeof req.body.address === "undefined" ||
+    // typeof req.body.phone_number === "undefined" ||
     typeof req.body.is_admin === "undefined"
   ) {
     res.status(422).json({ msg: "Invalid data" });
@@ -421,10 +421,10 @@ exports.addUser = async (req, res) => {
   let {
     email,
     password,
-    firstName,
-    lastName,
-    address,
-    phone_number,
+    // firstName,
+    // lastName,
+    // address,
+    // phone_number,
     is_admin,
   } = req.body;
   let userFind = null;
@@ -442,10 +442,10 @@ exports.addUser = async (req, res) => {
   password = bcrypt.hashSync(password, 10);
   const newUser = new user({
     email: email,
-    firstName: firstName,
-    lastName: lastName,
-    password: password,
-    address: address,
+    // firstName: firstName,
+    // lastName: lastName,
+    // password: password,
+    // address: address,
     phone_number: phone_number,
     is_verify: true,
     is_admin: is_admin,
@@ -530,10 +530,10 @@ exports.login = async (req, res) => {
     token: token,
     user: {
       email: userFind.email,
-      firstName: userFind.firstName,
-      lastName: userFind.lastName,
-      address: userFind.address,
-      phone_number: userFind.phone_number,
+      // firstName: userFind.firstName,
+      // lastName: userFind.lastName,
+      // address: userFind.address,
+      // phone_number: userFind.phone_number,
       id: userFind._id,
     },
   });

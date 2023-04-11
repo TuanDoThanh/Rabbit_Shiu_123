@@ -32,7 +32,7 @@ export const auth = () => async (dispatch, getState) => {
   let token = storeConfig.getToken();
   let res;
   try {
-    res = await axios.post(`/auth`, {
+    res = await axios.post(`${API_URL}/auth`, {
       email: email,
       token: token,
     });
