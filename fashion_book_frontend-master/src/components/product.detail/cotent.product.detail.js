@@ -176,7 +176,14 @@ class ContentProductDetail extends Component {
                           <i class="fas fa-star bestselling__product-rate"></i>
                           <i class="fas fa-star bestselling__product-rate"></i>
                         </div>
-                        <span>{this.props.mproductDetail.price}<sup>đ</sup></span>
+                        <span></span>
+                        {/* {this.props.mproductDetail.price} */}
+                        <span>
+                            {new Intl.NumberFormat("de-DE", {
+                              currency: "EUR",
+                            }).format(this.props.mproductDetail.price)}
+                            <sup>đ</sup>
+                          </span>
                         
                       </div>
                       <div className='count-product'>

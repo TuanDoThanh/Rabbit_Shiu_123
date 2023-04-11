@@ -61,10 +61,10 @@ class EnterNewPassword extends Component {
             onClick={() => 
                 this.handleSubmit()}
           >
-            submit
+            <Link to="/login_register">submit</Link>
           </button>
           <h2>
-            <Link to="/">Bring me back Home</Link>
+            <Link to="/">Bring me back</Link>
           </h2>
         </div>
       </div>

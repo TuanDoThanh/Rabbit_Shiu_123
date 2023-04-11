@@ -138,7 +138,8 @@ class ContentCart extends Component {
                          
                         </td>
                         <td className="cart_price">
-                          <p>{element.price}</p>
+                          {new Intl.NumberFormat("de-DE", {currency: "EUR",}).format(element.price)}
+                          <sup>đ</sup>
                         </td>
                         <td className="cart_quantity">
                           <div className="cart_quantity_button">
