@@ -9,11 +9,11 @@ const otp = require("../utils/otp");
 exports.register = async (req, res) => {
   if (
     typeof req.body.email === "undefined" ||
-    typeof req.body.password === "undefined"
-    // typeof req.body.firstName === "undefined" ||
-    // typeof req.body.lastName === "undefined" 
-    // typeof req.body.address === "undefined" ||
-    // typeof req.body.phone_number === "undefined"
+    typeof req.body.password === "undefined" ||
+    typeof req.body.firstName === "undefined" ||
+    typeof req.body.lastName === "undefined" ||
+    typeof req.body.address === "undefined" ||
+    typeof req.body.phone_number === "undefined"
   ) {
     res.status(422).json({ msg: "Invalid data" });
     return;

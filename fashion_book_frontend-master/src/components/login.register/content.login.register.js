@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 
 // setFirstname, setLastname, setAddress, setPhone,
 
-function ContentLoginRegister({ setEmailogin, setPasswordlogin, setEmail,
-     setPassword, setConfirm,notificationRegister, notificationLogin, registerSubmit, loginSubmit }){
+function ContentLoginRegister({ setEmailogin, setPasswordlogin, setEmail,setPassword, setConfirm,notificationRegister, notificationLogin, registerSubmit, loginSubmit }){
         const [Login,setLogin] = useState(true);
         const [Register,setRegister] = useState(false);
         function handleLogin(){

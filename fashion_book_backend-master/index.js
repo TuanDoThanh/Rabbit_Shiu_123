@@ -15,8 +15,9 @@ const billRouter = require('./api/routers/bill.router');
 const cartRouter = require('./api/routers/cart.router');
 const adminRouter = require('./api/routers/admin.router');
 const addressVnRouter = require('./api/routers/addres.vn.router');
+const { MOGOOSE_CONNECTION_STRING } = require('./env')
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://tuandtbdaf200046:RYpeX8JmESW90q4N@cluster0.jpwss5y.mongodb.net/RBS?retryWrites=true&w=majority');
+mongoose.connect(MOGOOSE_CONNECTION_STRING);
 const address = require('./api/models/address.vn.model');
 const test = () => {
     Object.keys(data).forEach( function(k){

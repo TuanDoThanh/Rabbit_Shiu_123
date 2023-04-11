@@ -1,13 +1,22 @@
 const nodemailer = require('nodemailer');
-const transporter = nodemailer.createTransport(
-   {
-    service: 'gmail',
+const { 
+    SMTP_HOST,
+    SMTP_PORT,
+    SMTP_USER,
+    SMTP_PASSWORD,
+    API_HOST
+ }  = require('../../env');
+ const smtpOptions = {
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: true, // true for 465, false for other ports
     auth: {
-        user: 'kiara96.shippo@gmail.com',
-        pass: 'saleem03081996'
-    }
-   }
-)
+        user: SMTP_USER, // generated ethereal user
+        pass: SMTP_PASSWORD, // generated ethereal password
+    },
+}
+console.log(smtpOptions);
+const transporter = nodemailer.createTransport(smtpOptions);  
 
 exports.sendEmail = async (email, token) => {
     let mailOptions = {
@@ -19,7 +28,7 @@ exports.sendEmail = async (email, token) => {
             + ' <br/>'
             + '<span>Please verify your account by clicking the link</span>'
             + '<br/>'
-            + '<span>http://localhost:3000/confirm/' + token +  '</span>'
+            + `<span>${API_HOST}/confirm/${token}</span>`
     };
     try{
         let send = await transporter.sendMail(mailOptions);
