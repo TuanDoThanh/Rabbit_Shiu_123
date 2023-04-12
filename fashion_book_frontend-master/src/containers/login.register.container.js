@@ -90,10 +90,10 @@ class LoginRegisterContainer extends Component {
     } catch (err) {
       if (err.response.data.msg === "Email already exist")
         this.setState({ notificationRegister: "Email already exist" });
-      else this.setState({ notificationRegister: "Đăng Ký Thất Bại" });
+      else this.setState({ notificationRegister: "Registration failed" });
       return;
     }
-    this.setState({ notificationRegister: "Đăng Ký Thành Công" });
+    this.setState({ notificationRegister: "Sign Up Success" });
     // window.location.replace('/')
   };
 
@@ -115,7 +115,7 @@ class LoginRegisterContainer extends Component {
         if (err.response.data.msg === "no_registration_confirmation")
           this.setState({
             notificationLogin:
-              "Tài Khoản Chưa Được Kích Hoạt, Vui Lòng Vào mail Để Kích Hoạt",
+              "Account Not Activated!",
           });
         else {
           this.setState({ notificationLogin: "Email or password invalid" });

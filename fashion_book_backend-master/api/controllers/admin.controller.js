@@ -21,11 +21,7 @@ const storage = new CloudinaryStorage({
 const uploadCloud = multer({ storage });
 
 var uploads = {};
-// uploadCloud.config({
-//   cloud_name: "dpsk0mryx",
-//   api_key: "285367937349132",
-//   api_secret: "yVHj9Gb6QrdrQjFhbr45zlNraXI",
-// });
+
 
 const book = require("../models/book.model");
 const user = require("../models/user.model");

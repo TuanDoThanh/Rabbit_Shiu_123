@@ -1,32 +1,28 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-const ForgotPassword = ({ setEmail, submit, notification }) => (
-	<div className="container text-center">
-		<div className="logo-404">
-		<div className='null-cart'>
-			<Link to="/"><img src="/assets/images/home/logoRp1.jpg" alt="" /></Link>
-            
-          </div>
-			
-		</div>
-		<div className="content-404 forgotpass">
-			<h1><b>FORGOT PASSWORD
-			</b></h1>
-			<span>{notification}</span>
-			<input
-			type="email"
-				placeholder="Email"
-				onChange={e => setEmail(e.target.value)}
-			/>
-			<br />
-			<button
-				className="btn btn-default"
-				onClick={() => submit()}
-			>
-				submit
-			</button>
-			<h2><Link to="/">Bring me back Home</Link></h2>
-		</div>
+const ForgotPassword = ({ setEmail, submit,notification}) => (
+	<div className='login-ss'>
+            <div class="form-box">
+                <div class="form-value">
+                    <div>
+                        <h2 className='login-h2'>FORGOT PASSWORD</h2>
+                        <span className='notification'>{notification}</span>
+                        <div class="inputbox">
+                            <input 
+                            className='login-input' 
+                            type="email" 
+                            required placeholder=""
+                            onChange={e => setEmail(e.target.value)}/>
+                            <label className='login-label' for="">Email</label>
+                        </div>
+                        <button className='login-btn' onClick={() => submit()}>Submit</button>
+                        <div class="register">
+                            <p><Link to="/login_register">Back</Link></p>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
 	</div>
 )
 export default ForgotPassword
