@@ -37,7 +37,7 @@ export const auth = () => async (dispatch, getState) => {
       token: token,
     });
   } catch (err) {
-    dispatch(setLoginFail());
+    // dispatch(setLoginFail());
     return false;
   }
   dispatch(setLoginSuccess());
@@ -95,7 +95,7 @@ export const submitOTP = (otp) => async (dispatch, getState) => {
       otp: otp,
     });
   } catch (err) {
-    dispatch(verifyOTPFAIL());
+    // dispatch(verifyOTPFAIL());
     return;
   }
   dispatch(verifyOTPSuccess(otp));

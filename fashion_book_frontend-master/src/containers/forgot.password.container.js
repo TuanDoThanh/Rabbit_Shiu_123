@@ -31,7 +31,7 @@ class ForgotPasswordContainer extends Component {
         if (this.isvalidEmail(this.state.email))
             this.setState({ email: '' })
         else {
-            this.setState({ notification: 'email invalid' })
+            this.setState({ notification: 'Invalid email' })
             return
         }
         this.props.actions.submitForgotPassword(this.state.email)
@@ -63,11 +63,11 @@ class ForgotPasswordContainer extends Component {
     }
     submitEnterNewPassword = (password, confirm) => {
         if (password.length < 6) {
-            this.setState({ notificationEnterPassowrd: "input invalid" })
+            this.setState({ notificationEnterPassowrd: "Invalid Input" })
             return
         }
         if (confirm !== password) {
-            this.setState({ notificationEnterPassowrd: "input invalid" })
+            this.setState({ notificationEnterPassowrd: "Invalid Input" })
             return
         }
         this.props.actions.submitEnterNewPassword(this.state.newPassword)

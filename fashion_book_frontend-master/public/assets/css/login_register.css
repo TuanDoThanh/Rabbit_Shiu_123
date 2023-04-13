@@ -4,6 +4,7 @@
     padding: 0;
     font-family: 'poppins',sans-serif;
 } */
+
 .login-ss{
     display: flex;
     justify-content: center;
@@ -29,6 +30,9 @@
 }
 .login-label{
     font-weight: initial;
+}
+.login-label a{
+    margin-left: 106px;
 }
 .login-h2{
     font-size: 2em;
@@ -102,12 +106,21 @@ top: -5px;
     font-size: 1em;
     font-weight: 600;
 }
+.login-btn:hover{
+    opacity: 0.75;
+}
 .register{
     font-size: .9em;
     color: #fff;
     text-align: center;
     margin: 25px 0 10px;
+    cursor: pointer;
 }
+
+.forgotpass{
+    font-weight: bold;
+}
+
 .register p a{
     text-decoration: none;
     color: #fff;
@@ -116,3 +129,41 @@ top: -5px;
 .register p a:hover{
     text-decoration: underline;
 }
+
+.notification{
+    color: red;
+}
+
+
+/**** OTP ****/
+
+.otp-form {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 26px;
+    margin-top: 26px;
+  }
+  .otp-form input {
+    border: none;
+    background-color: #121517;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    outline: 2px solid #fff;
+    background: transparent;
+  }
+  .otp-form input:focus-visible {
+    outline: 2px solid royalblue;
+  }
+  .otp-form input.filled {
+    outline: 2px solid rgb(7, 192, 99);
+  }
+  

@@ -43,12 +43,12 @@ function ContentLoginRegister({ setEmailogin, setPasswordlogin, setEmail,setPass
                             <label className='login-label' for="">Password</label>
                         </div>
                         <div class="forget">
-                            <label className='login-label' for=""><input className='login-input' type="checkbox"/>Remember Me  <Link to='/forgotpass/'>Forget password?</Link></label>
+                            <label className='login-label' for=""><input className='login-input' type="checkbox"/>Remember Me  <Link className='forgotpass' to='/forgotpass/'>Forget password?</Link></label>
                           
                         </div>
                         <button className='login-btn' onClick={() => loginSubmit()}>Log in</button>
                         <div class="register">
-                            <p>Don't have a account <a onClick={handleRegister}>Register?</a></p>
+                            <p>Don't have a account <a onClick={handleRegister}>Signup</a></p>
                         </div>
                     </div>
                    
@@ -64,7 +64,7 @@ function ContentLoginRegister({ setEmailogin, setPasswordlogin, setEmail,setPass
             <div class="form-box">
                 <div class="form-value">
                     <div>
-                        <h2 className='login-h2'>Register</h2>
+                        <h2 className='login-h2'>Signup</h2>
                         <div className="noti">{notificationRegister}</div>
                         <div class="inputbox">
                             <input 
