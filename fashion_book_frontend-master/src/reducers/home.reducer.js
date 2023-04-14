@@ -103,9 +103,22 @@ const book = (state = {
         default: return state
     }
 }
+
+const home = (state = {top_product: []}, action) => {
+    switch(action.type) {
+        case homeTypes.SET_TOP_PRODUCT: {
+            return {
+                ...state,
+                top_product: action.data
+            }
+        }
+        default: return state
+    }
+}
 export default combineReducers({
     category,
     publisher,
     book, 
-    author
+    author,
+    home
 })

@@ -28,6 +28,7 @@ export const homeTypes = {
     SET_SEARCH_TEXT: 'SET_SEARCH_TEXT',
     SET_AUTHOR: 'SET_AUTHOR',
     SET_ID_BRANCH: 'SET_ID_BRANCH',
+    SET_TOP_PRODUCT:' SET_TOP_PRODUCT'
 }
 
 export const productTypes = {

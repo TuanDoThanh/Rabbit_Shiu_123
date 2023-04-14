@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductItem from "./product.item";
 import { Link } from "react-router-dom";
+import Bestselling from "./bestselling.item";
 class ContentHome extends Component {
   constructor(props) {
     super(props);
@@ -124,7 +125,19 @@ class ContentHome extends Component {
                 </div>
           </div>
           <div className="row">
-          
+          {this.props.top_product.map((element, index) => {
+                  return (
+                    <Bestselling  
+                      top_product={element}
+                      urlImg={element.img}
+                      price={element.price}
+                      describe={element.describe}
+                      id={element._id}
+                      name={element.name}
+                      addToCart={(product) => this.props.addToCart(product)}
+                    />
+                  );
+                })}
           </div>
         </div>
         </div>

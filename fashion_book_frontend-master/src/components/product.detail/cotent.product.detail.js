@@ -13,9 +13,16 @@ class ContentProductDetail extends Component {
       quantity: 1,
       noti: false,
       show:false,
-      pagination: []
+      pagination: [],
+      visible: true
     };
   }
+componentDidMount(){
+  this.Timer = setTimeout(() => {
+    this.setState({visible:false});
+  },3000);
+}
+
   componentWillMount() {
     let tmp = [];
     for (let i = 1; i <= this.props.totalpage; i++) {
@@ -33,6 +40,8 @@ class ContentProductDetail extends Component {
         email: ""
       });
     }
+
+    clearTimeout(this.timer);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.totalpage !== this.props.totalpage) {
@@ -83,6 +92,7 @@ class ContentProductDetail extends Component {
       );
     }
   }
+
   handlename = name => {
     if (this.state.name === "") {
       this.setState({ name: name });
@@ -121,24 +131,21 @@ class ContentProductDetail extends Component {
     this.props.addToCart(product);
   };
   render() {
+    const {visible} = this.state;
+    
     let xhtml='';
     console.log(this.state.noti);
     if(this.state.noti){
-      xhtml = <div className='aler-box'>
-        <div className='btn-close' onClick={() => this.setState({ noti: false })}>
-          x
-        </div>
-      <div className='aler-title'>
-        <h3 className='title'>The product has been added to cart</h3>
-      </div>
-      <div className='aler-body'>Added to cart</div>
-      <div className='alert-footer'>
-        <button className="roduct-variation" onClick={() => this.setState({ noti: false })}>
-          Cancel
-          
-        </button>
-      </div>
-    </div>
+      xhtml = 
+      visible ? ( 
+          <div className='aler-box'>
+            <div className='aler-title'>
+              <i class="fas fa-check aler-icon"></i> 
+              <h3 className='title'>Add to cart successfully!</h3>
+            </div>
+            <div className='alert-footer'>
+            </div>
+        </div>):null
     }
     return (
       <section className="ss_product ss-bestselling mg-top">
@@ -206,10 +213,13 @@ class ContentProductDetail extends Component {
                         Add to cart
                       </button>
                       <Link className="text-ctn-drtail" to={"/cart"}>
-                      <button type="button" className="btn cart btn-buy-now-detail">
-                        <i className="fa fa-regular fa-heart"/>
+                      <button 
+                      type="button" 
+                      onClick={() => this.submitOrder()}
+                      className="btn cart btn-buy-now-detail">
+                      <i className="fa fa-regular fa-heart"/>
                           Buy Now
-                        </button>
+                      </button>
                       </Link>
                       
                     </span>

@@ -11,7 +11,7 @@ const Home = ({ islogin, logout, category,
     nextPage, setPage, page, sortType, setSortType,
     setRangeType, title, setTitle, setBranch, branch, 
     setSearchText, author, setIDBranch, branchClick, history,
-    searchTextSubmit, addToCart }) => (
+    searchTextSubmit, addToCart,top_product }) => (
         <div>
             <header id="header">
      
@@ -47,6 +47,7 @@ const Home = ({ islogin, logout, category,
                 setIDBranch={(id) => setIDBranch(id)}
                 branchClick={(branch, id) => branchClick(branch, id)}
                 addToCart={(product) => addToCart(product)}
+                top_product={top_product}
                 
             />
             <footer id="footer">

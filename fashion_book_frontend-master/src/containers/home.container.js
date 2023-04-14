@@ -20,6 +20,7 @@ class HomeContainer extends React.Component {
         this.props.homeActions.getPublisher()
         this.props.homeActions.getBook()
         this.props.homeActions.getAuthor()
+        this.props.homeActions.getTopProduct()
     }
     componentWillReceiveProps(nextProps) {
         if(nextProps.page !== this.props.page) {
@@ -57,6 +58,7 @@ class HomeContainer extends React.Component {
                         history={this.props.history}
                         searchTextSubmit={() => this.props.homeActions.searchTextSubmit()}
                         addToCart={(product) => this.props.productActions.addToCart(product)}
+                        top_product={this.props.top_product}
                     />
                 </div>
             )
@@ -78,7 +80,8 @@ const mapStateToProps = state => ({
     page: state.homeReducers.book.page, 
     sortType: state.homeReducers.book.sortType,
     title: state.homeReducers.book.title,
-    branch: state.homeReducers.book.branch
+    branch: state.homeReducers.book.branch,
+    top_product: state.homeReducers.home.top_product
 })
 
 const mapDispatchToProps = dispatch =>{
@@ -88,6 +91,7 @@ const mapDispatchToProps = dispatch =>{
         productActions: bindActionCreators(productActions, dispatch)
     })
 }
+
 export default connect(
     mapStateToProps,
     mapDispatchToProps

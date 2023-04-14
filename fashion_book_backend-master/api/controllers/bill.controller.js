@@ -162,7 +162,7 @@ exports.statisticalTop10 = async (req, res) => {
   arr.sort(function (a, b) {
     return b.count - a.count;
   });
-  res.status(200).json({ data: arr.length > 10 ? arr.slice(0, 10) : arr });
+  res.status(200).json({ data: arr.length > 8 ? arr.slice(0, 8) : arr });
 };
 exports.statisticaRevenueDay = async (req, res) => {
   if (

@@ -2,6 +2,22 @@ import axios from 'axios'
 import { API_URL } from "../constants/urls";
 import { homeTypes, sortTypes } from '../constants/action.types';
 
+export const setTopProduct = (data) => ({
+    type: homeTypes.SET_TOP_PRODUCT,
+    data
+})
+export const getTopProduct = () => async (dispatch, getState) => {
+    let res = null
+    try {
+        res = await axios.post(`${API_URL}/bill/top/`)
+    }
+    catch(err) {
+        console.log(err)
+        return
+    }
+    dispatch(setTopProduct(res.data.data))
+}
+
 
 export const getCategory = () => async (dispatch, getState) =>  {
     let res

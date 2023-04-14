@@ -290,17 +290,33 @@
         color:#fdb45e;
       }
       .aler-box{
-        padding: 3rem 10rem;
-        border: 1px solid violet;
-        box-shadow: 0 0 20px rgb(249 168 168 / 84%), 0 0 20px rgb(242 146 246 / 45%), 0 0 30px rgb(151 144 250 / 25%), 0 0 30px rgb(247 219 219 / 10%);
+        padding: 5rem 5rem;
+        border-radius: 20px;
+        display: inline-block;
         z-index: 99;
+        overflow: hidden;
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-100%);
+        transform: translate(-50%,-50%);
         max-width: 800px;
-        background-color: #fefefe;
-      
+        min-height: 100px;
+        background-color: rgba(0,0,0,.7);
+        text-align: center;
+        color: #fff;
+
+        /* border-radius: 2px;
+        overflow: hidden;
+        display: inline-block;
+        cursor: default;
+        padding: 2.5rem 1.25rem;
+        background-color: rgba(0,0,0,.7);
+        color: #fff;
+        font-size: 1.0625rem;
+        text-align: center;
+        min-width: 18.75rem;
+        max-width: 25rem; */
+          
       }
       .btn-close {
         position: absolute;
@@ -319,6 +335,18 @@
           background-color: #f15129;
           color: #fff;
         }
+
+       
+      .aler-icon {
+        color: #00bf00;
+        font-size: 50px;
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+      }
+  
+
+
       .aler-body {
         margin-bottom: 1.5rem;
         margin-top: -1rem;
@@ -1086,7 +1114,7 @@
       .productinfo img{
         padding-top: 20px;
         width: 100%;
-        max-height: 210px;
+        max-height: 280px;
         /* min-height: 175px; */
         border-radius: 10px;
       }
@@ -1110,26 +1138,26 @@
       }
       .productinfo{
       position:relative;
-      max-height: 300px;
+      max-height: 400px;
       }
 
       .product_home-item{
-        min-height: 350px;
+        min-height: 430px;
         margin-bottom: 12px;
       }
 
       .name-product-home{
-          margin-left: 6px;
-          margin-right: 6px;
+          margin-left: 30px;
+          margin-right: 30px;
       }
 
       .price-product-home{
-        font-size: 16px;
+        font-size: 20px;
         margin-top: 0px;
         color: #f24137;
       }
       .product-cont-item{
-        margin-top: 34px;
+        margin-top: 30px;
       }
 
       .product-overlay {
@@ -1503,7 +1531,7 @@
         font-size: 30px;
         font-weight: 700;
         margin-bottom: 10px;
-        margin-right: 20px;
+        /* margin-right: 20px; */
       }
       .product-information span input {
         border: 2px solid #DEDEDC;
