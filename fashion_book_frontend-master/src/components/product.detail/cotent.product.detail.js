@@ -20,6 +20,7 @@ class ContentProductDetail extends Component {
 componentDidMount(){
   this.Timer = setTimeout(() => {
     this.setState({visible:false});
+    // window.location.reload();
   },3000);
 }
 
@@ -130,6 +131,7 @@ componentDidMount(){
     product.count = this.state.quantity;
     this.props.addToCart(product);
   };
+ 
   render() {
     const {visible} = this.state;
     
