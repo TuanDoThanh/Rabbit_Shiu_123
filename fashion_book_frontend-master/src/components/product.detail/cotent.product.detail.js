@@ -2,6 +2,22 @@ import React, { Component } from "react";
 import storeConfig from "../../config/storage.config";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
+
+const LinkButton = withRouter(({ history, ...props }) => {
+  const { handle, to, children } = props
+  return (
+    <button
+      className="btn cart btn-buy-now-detail"
+      onClick={() => {
+        handle();
+        history.push(to);
+        window.location.href = "/cart";
+      }}>
+      {children}
+    </button>
+  );
+});
 class ContentProductDetail extends Component {
   constructor(props) {
     super(props);
@@ -130,6 +146,7 @@ componentDidMount(){
     product.count = this.state.quantity;
     this.props.addToCart(product);
   };
+ 
   render() {
     const {visible} = this.state;
     
@@ -212,16 +229,13 @@ componentDidMount(){
                       <i className="fa fa-shopping-cart"/>
                         Add to cart
                       </button>
-                      <Link className="text-ctn-drtail" to={"/cart"}>
-                      <button 
-                      type="button" 
-                      onClick={() => this.submitOrder()}
-                      className="btn cart btn-buy-now-detail">
-                      <i className="fa fa-regular fa-heart"/>
-                          Buy Now
-                      </button>
-                      </Link>
-                      
+                      <LinkButton
+                        handle={() => {this.submitOrder()}}
+                        to="/cart"
+                      >
+                        <i className="fa fa-regular fa-heart"/>
+                        Buy Now
+                      </LinkButton>
                     </span>
                     <p>{this.state.noti}</p>
                     </div>

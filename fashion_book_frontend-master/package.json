@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@paypal/paypal-js": "^5.1.6",
+    "@paypal/react-paypal-js": "^7.8.3",
     "axios": "^0.17.1",
     "bootstrap": "^5.2.3",
     "cloudinary": "^1.35.0",
@@ -15,6 +17,7 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^17.0.0-rc.0",
     "react-firebaseui": "^6.0.0",
+    "react-modal": "^3.16.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",

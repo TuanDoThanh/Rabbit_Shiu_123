@@ -29,11 +29,11 @@ exports.addBill = async (req, res) => {
     return;
   }
   const token = randomstring.generate();
-  let sendEmail = await nodemailer.sendMailConfirmPayment(email, token);
-  if (!sendEmail) {
-    res.status(500).json({ msg: "Send email fail" });
-    return;
-  }
+  // let sendEmail = await nodemailer.sendMailConfirmPayment(email, token);
+  // if (!sendEmail) {
+  //   res.status(500).json({ msg: "Send email fail" });
+  //   return;
+  // }
   const new_bill = new bill({
     id_user: id_user,
     products: cartFind.products,

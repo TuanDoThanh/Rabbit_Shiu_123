@@ -66,6 +66,8 @@ export const cartTypes = {
     SET_CITY: 'SET_CITY',
     SET_DICTRICT: 'SET_DISTRICT',
     SET_WARD: 'SET_WARD',
+}
+export const paymentTypes = {
     PAYMENT_SUCCESS: 'PAYMENT_SUCCESS',
     PAYMENT_FAIL: 'PAYMENT_FAIL',
     RESET_PAYMENT: 'RESET_PAYMENT'

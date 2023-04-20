@@ -68,24 +68,24 @@ exports.sendEmailForgotPassword = async (email, token) => {
     }
     return true;
 }
-exports.sendMailConfirmPayment = async (email, token) => {
-    let mailOptions = {
-        from: 'Rabbit Shiu<noreply@rabbit-shiu.vercel.app>', // sender address
-        to: email, // list of receivers
-        subject: 'Payment Verification', // Subject line
-        text: `Hello ${email}`,
-        html: '<b>verify your account</b>'
-            + ' <br/>'
-            + '<span>Please verify your account by clicking the link</span>'
-            + '<br/>'
-            + `<span>${API_HOST}/confirm/${token}</span>`
-    };
-    try{
-        let send = await transporter.sendMail(mailOptions);
-    }
-    catch(err){
-        console.log(err);
-        return false;
-    }
-    return true;
-}
+// exports.sendMailConfirmPayment = async (email, token) => {
+//     let mailOptions = {
+//         from: 'Rabbit Shiu<noreply@rabbit-shiu.vercel.app>', // sender address
+//         to: email, // list of receivers
+//         subject: 'Payment Verification', // Subject line
+//         text: `Hello ${email}`,
+//         html: '<b>verify your account</b>'
+//             + ' <br/>'
+//             + '<span>Please verify your account by clicking the link</span>'
+//             + '<br/>'
+//             + `<span>${API_HOST}/confirm/${token}</span>`
+//     };
+//     try{
+//         let send = await transporter.sendMail(mailOptions);
+//     }
+//     catch(err){
+//         console.log(err);
+//         return false;
+//     }
+//     return true;
+// }

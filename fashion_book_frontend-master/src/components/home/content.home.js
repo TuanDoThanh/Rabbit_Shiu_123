@@ -14,7 +14,7 @@ class ContentHome extends Component {
       check_5: false,
     };
   }
-  
+
   componentWillMount() {
     let tmp = [];
     for (let i = 1; i <= this.props.totalpage; i++) {
@@ -75,59 +75,86 @@ class ContentHome extends Component {
     });
   };
 
-
   render() {
     console.log("this.props.book", this.props.book);
 
     return (
-      
       <section className="ss_product pd-top">
         <div className="container ss-slider">
           <div class="row menu-slide">
-                <div class="product__sidebar-img-wrap col-lg-4 col-md-0 col-sm-3">
-                        <video width="350" height="390" src="assets/video/contra.st_1629123780_musicaldown.com.mp4" type="video/mp4" controls>  
-                        </video>
+            <div class="product__sidebar-img-wrap col-lg-4 col-md-0 col-sm-3">
+              <video
+                width="350"
+                height="390"
+                src="assets/video/contra.st_1629123780_musicaldown.com.mp4"
+                type="video/mp4"
+                controls
+              ></video>
+            </div>
+            <div class="slider col-lg-8 col-md-12 col-sm-9">
+              <div class="row">
+                <div class="slide__left col-lg-8 col-md-0 col-sm-0">
+                  <div
+                    id="carouselExampleIndicators"
+                    class="carousel slide"
+                    data-ride="carousel"
+                    data-interval="3000"
+                  >
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img
+                          src="/assets/images1/slide RB/slide2.jpg"
+                          class="d-block w-100 imgss"
+                          alt="..."
+                        />
+                      </div>
                     </div>
-                <div class="slider col-lg-8 col-md-12 col-sm-9">
-                    <div class="row">
-                        <div class="slide__left col-lg-8 col-md-0 col-sm-0">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="/assets/images1/slide RB/slide2.jpg" class="d-block w-100 imgss" alt="..."/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide__left-bottom">
-                                <div class="slide__left-botom-one">
-                                    <img src="/assets/images1/slide RB/slide4.jpg" class="slide__left-bottom-one-img"/>
-                                </div>
-                                <div class="slide__left-bottom-two">
-                                    <img src="/assets/images1/slide RB/slide5.jpg" class="slide__left-bottom-tow-img"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide__right col-lg-4 col-md-0 col-sm-0">
-                            <img src="/assets/images1/banner/slider-right.png" class="slide__right-img"/>
-                        </div>
+                  </div>
+                  <div class="slide__left-bottom">
+                    <div class="slide__left-botom-one">
+                      <img
+                        src="/assets/images1/slide RB/slide4.jpg"
+                        class="slide__left-bottom-one-img"
+                      />
                     </div>
+                    <div class="slide__left-bottom-two">
+                      <img
+                        src="/assets/images1/slide RB/slide5.jpg"
+                        class="slide__left-bottom-tow-img"
+                      />
+                    </div>
+                  </div>
                 </div>
+
+                <div class="slide__right col-lg-4 col-md-0 col-sm-0">
+                  <img
+                    src="/assets/images1/banner/slider-right.png"
+                    class="slide__right-img"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="ss-bestselling">
           <div className="container">
-          <div class="bestselling">
-          <div class="row">
+            <div class="bestselling">
+              <div class="row">
                 <div class="bestselling__heading-wrap">
-                    <img src="/assets/images1/slide RB/bestselling.png" alt="Selling products" class="bestselling__heading-img"/>
-                    <div class="bestselling__heading">Top best sellers of the week</div>
+                  <img
+                    src="/assets/images1/slide RB/bestselling.png"
+                    alt="Selling products"
+                    class="bestselling__heading-img"
+                  />
+                  <div class="bestselling__heading">
+                    Top best sellers of the week
+                  </div>
                 </div>
-          </div>
-          <div className="row">
-          {this.props.top_product.map((element, index) => {
+              </div>
+              <div className="row">
+                {this.props.top_product.map((element, index) => {
                   return (
-                    <Bestselling  
+                    <Bestselling
                       top_product={element}
                       urlImg={element.img}
                       price={element.price}
@@ -138,13 +165,13 @@ class ContentHome extends Component {
                     />
                   );
                 })}
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-        </div>
-        
+
         <div className="container ss-content">
-        <div className="row content-home">
+          <div className="row content-home">
             <div className="col-sm-3">
               <div className="left-sidebar">
                 <h2>Thể Loại</h2>
