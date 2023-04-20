@@ -6,6 +6,7 @@ class ContentCart extends Component {
   constructor() {
     super();
     this.state = {
+      showtotal: false,
       show: false,
       ispay: false,
       showpaymentfail: false,
@@ -34,7 +35,12 @@ class ContentCart extends Component {
     if (!this.props.islogin) {
       this.setState({ show: true });
       return;
-    } else {
+    }
+    else if (this.props.cart.length<1){
+      this.setState({ showtotal: true});
+      return;
+    }
+    else {
       this.setState({ show: false });
       window.location.href = "/payment";
       return;
@@ -178,6 +184,27 @@ class ContentCart extends Component {
                         </Button>
                         <Button onClick={this.handleHide}>
                           <Link to="/login_register">Login</Link>
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                    <Modal
+                      show={this.state.showtotal}
+                      onHide={() => this.setState({ showtotal: false })}
+                      container={this}
+                      aria-labelledby="contained-modal-title"
+                    >
+                      <Modal.Header closeButton>
+                        <Modal.Title id="contained-modal-title">
+                          Notification
+                        </Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>Không có sản phẩm trong giỏ hàng!</Modal.Body>
+                      <Modal.Footer>
+                        <Button onClick={() => this.setState({ showtotal: false })}>
+                          <a>Cancel</a>
+                        </Button>
+                        <Button onClick={this.handleHide}>
+                          <Link to="/">Tiếp tục mua hàng</Link>
                         </Button>
                       </Modal.Footer>
                     </Modal>

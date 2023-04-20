@@ -21,8 +21,34 @@ class ContentPayment extends Component {
       notiDetailAddress: "",
       ispay: false,
       showpaymentfail: false,
+      modalIsOpen: false,
+      shippingInfo: {},
     };
   }
+  //phuong thuc thanh toan
+ 
+
+  // thong tin giao hang
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const shippingInfo = {
+      name: formData.get("name"),
+      address: formData.get("address"),
+      phone: formData.get("phone"),
+    };
+    this.setState({ shippingInfo });
+    this.closeModal();
+  };
+
   componentWillMount() {
     let total = 0;
     for (let i = 0; i < this.props.cart.length; i++) {
@@ -167,6 +193,132 @@ class ContentPayment extends Component {
                   })}
                 </tbody>
               </table>
+              <div className="col-md-12 total-sup">
+                <div className="col-md-7">
+                  <h2 className="total-sup shipping-unit">
+                    <i class="fa fa-truck"></i> Shipping unit:{" "}
+                    <span className="shipping-unit-span">
+                      International shipping
+                    </span>
+                  </h2>
+                </div>
+                <div class="col-md-4 total_area">
+                  <div className="col-md-12">
+                    <h2 className="total-sup">
+                      Transport fee:
+                      <span className="total-sup">
+                        0<sup className="total-sup">đ</sup>
+                      </span>
+                    </h2>
+                  </div>
+                  <div className="col-md-12">
+                    <h2 className="total-sup">
+                      Total:
+                      <span className="total-sup">
+                        {new Intl.NumberFormat("de-DE", {
+                          currency: "EUR",
+                        }).format(this.state.total)}
+                        <sup className="total-sup">đ</sup>
+                      </span>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-12 info_ship-ss">
+                <button onClick={this.openModal} className="info_ship-btn">
+                  <i class="fa fa-regular fa-plus"></i>
+                  {"    "}Thông Tin Giao hàng
+                </button>
+                <Modal
+                  show={this.state.modalIsOpen}
+                  onRequestClose={this.closeModal}
+                >
+                  <form onSubmit={this.handleSubmit} className="info_ship-form">
+                    <h2 className="info_ship-h2">Thông Tin Giao Hàng</h2>
+                    <div className="col-md-12">
+                      <label className="info_ship-label">Tên người nhận:</label>
+                      <input
+                        className="info_ship-input"
+                        type="text"
+                        name="name"
+                        value={this.state.name}
+                        onChange={(e) =>
+                          this.setState({ name: e.target.value })
+                        }
+                        required
+                      />
+                      <span>{this.state.notiName}</span>
+                    </div>
+                    <div className="col-md-12">
+                      <label className="info_ship-label">Số điện thoại:</label>
+                      <input
+                        className="info_ship-input"
+                        type="tel"
+                        name="phone"
+                        value={this.state.phone}
+                        onChange={(e) =>
+                          this.setState({ phone: e.target.value })
+                        }
+                        required
+                      />
+                      <span>{this.state.notiPhone}</span>
+                    </div>
+                    <div className="col-md-12">
+                      <label className="info_ship-label">
+                        Địa chỉ giao hàng:
+                      </label>
+                      <input
+                        className="info_ship-input"
+                        type="text"
+                        name="address"
+                        value={this.state.address}
+                        onChange={(e) =>
+                          this.setState({ address: e.target.value })
+                        }
+                        required
+                      />
+                      <span>{this.state.notiDetailAddress}</span>
+                    </div>
+                    <button className="info_ship-btn-md" type="submit">
+                      Lưu
+                    </button>
+                    <button
+                      className="info_ship-btn-md"
+                      type="button"
+                      onClick={this.closeModal}
+                    >
+                      Hủy Bỏ
+                    </button>
+                  </form>
+                </Modal>
+                {Object.keys(this.state.shippingInfo).length > 0 && (
+                  <div>
+                    <p className="info_ship-p">
+                      <span className="info_ship-span">
+                        {this.state.shippingInfo.name}{" "}
+                        {this.state.shippingInfo.phone}
+                        {":"}
+                      </span>
+                      {this.state.shippingInfo.address}
+                    </p>
+                  </div>
+                )}
+              </div>
+              <div className="col-md-12 info_ship-ss">
+                <h4>Chọn phương thức thanh toán</h4>
+                <div className="col-md-12">
+                  <div className="col-md-6">
+                  <button className="info_ship-btn">
+                  {"    "}Thanh toán khi nhận hàng
+                </button>
+                  </div>
+                  <div className="col-md-6">
+                  <button className="info_ship-btn">
+                  {"    "}Thanh toán bằng Paypal
+                </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -174,155 +326,93 @@ class ContentPayment extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div class="total_area">
-                  <div className="col-md-12">
-                    <h2>
-                      Transport fee:
-                      <span>
-                        0<sup>đ</sup>
-                      </span>
-                    </h2>
-                  </div>
-                  <div className="col-md-12">
-                    <h2>
-                      Total:
-                      <span>
-                        {new Intl.NumberFormat("de-DE", {
-                          currency: "EUR",
-                        }).format(this.state.total)}
-                        <sup>đ</sup>
-                      </span>
-                    </h2>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-12">
                 <div className="chose_area">
-                  <ul class="user_option">
-                    <li>
-                      <label>Name</label>
-                      <input
-                        type="text"
-                        value={this.state.name}
-                        onChange={(e) =>
-                          this.setState({ name: e.target.value })
-                        }
-                      />
-                      <span>{this.state.notiName}</span>
-                    </li>
-                    <li>
-                      <label>Phone</label>
-                      <input
-                        type="text"
-                        value={this.state.phone}
-                        onChange={(e) =>
-                          this.setState({ phone: e.target.value })
-                        }
-                      />
-                      <span>{this.state.notiPhone}</span>
-                    </li>
-                  </ul>
-
-                  <ul className="user_option">
-                    <li>
-                      <label>Address</label>
-                      <input
-                        type="text"
-                        value={this.state.address}
-                        onChange={(e) =>
-                          this.setState({ address: e.target.value })
-                        }
-                      />
-                      <span>{this.state.notiDetailAddress}</span>
-                    </li>
-                  </ul>
-                  <Modal
-                    show={this.state.ispay}
-                    onHide={() => this.setState({ ispay: false })}
-                    container={this}
-                    aria-labelledby="contained-modal-title"
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title id="contained-modal-title">
-                        Notification
-                      </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      Đặt Hàng Thành Công, Vui Lòng Vào Đơn Hàng Để Xem Chi Tiết
-                    </Modal.Body>
-                    <Modal.Footer>
-                      <Button
-                        onClick={() => {
-                          this.reset();
-                          window.location.reload();
-                        }}
-                      >
-                        <a>OK</a>
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-
-                  <Modal
-                    show={this.state.showpaymentfail}
-                    onHide={() => this.setState({ showpaymentfail: false })}
-                    container={this}
-                    aria-labelledby="contained-modal-title"
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title id="contained-modal-title">
-                        Notification
-                      </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Đặt Hang Thất Bại</Modal.Body>
-                    <Modal.Footer>
-                      <Button
-                        onClick={() =>
-                          this.setState({ showpaymentfail: false })
-                        }
-                      >
-                        <a>Cancel</a>
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
                   <div className="cart-option">
                     <div className="col-md-6">
-                    <button
-                      className="btn btn-default update"
-                      onClick={() => this.handlePayment()}
-                    >
-                      Payment
-                    </button>
+                      <button
+                        className="btn btn-default update"
+                        onClick={() => this.handlePayment()}
+                      >
+                        Payment
+                      </button>
+                      <Modal
+                        show={this.state.ispay}
+                        onHide={() => this.setState({ ispay: false })}
+                        container={this}
+                        aria-labelledby="contained-modal-title"
+                      >
+                        <Modal.Header closeButton>
+                          <Modal.Title id="contained-modal-title">
+                            Notification
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          Đặt Hàng Thành Công, Vui Lòng Vào Đơn Hàng Để Xem Chi
+                          Tiết
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button
+                            onClick={() => {
+                              this.reset();
+                              window.location.reload();
+                            }}
+                          >
+                            <a>OK</a>
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
+
+                      <Modal
+                        show={this.state.showpaymentfail}
+                        onHide={() => this.setState({ showpaymentfail: false })}
+                        container={this}
+                        aria-labelledby="contained-modal-title"
+                      >
+                        <Modal.Header closeButton>
+                          <Modal.Title id="contained-modal-title">
+                            Notification
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>Đặt Hang Thất Bại</Modal.Body>
+                        <Modal.Footer>
+                          <Button
+                            onClick={() =>
+                              this.setState({ showpaymentfail: false })
+                            }
+                          >
+                            <a>Cancel</a>
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
                     </div>
                     <div className="col-md-6">
-                    <button>
-                    <PayPalScriptProvider options={initialOptions}>
-                        <PayPalButtons
-                          createOrder={(data, actions) => {
-                            return actions.order.create({
-                              purchase_units: [
-                                {
-                                  amount: {
-                                    value: Math.ceil(
-                                      this.state.total / 23000.0
-                                    ).toString(),
+                      <button >
+                        <PayPalScriptProvider options={initialOptions}>
+                          <PayPalButtons
+                            createOrder={(data, actions) => {
+                              return actions.order.create({
+                                purchase_units: [
+                                  {
+                                    amount: {
+                                      value: Math.ceil(
+                                        this.state.total / 23000.0
+                                      ).toString(),
+                                    },
                                   },
-                                },
-                              ],
-                            });
-                          }}
-                          onApprove={(data, actions) => {
-                            return actions.order.capture().then((details) => {
-                              const name = details.payer.name.given_name;
-                              this.handlePayment();
-                              // alert(Transaction completed by ${name});
-                            });
-                          }}
-                        />
-                      </PayPalScriptProvider>
-                    </button>
+                                ],
+                              });
+                            }}
+                            onApprove={(data, actions) => {
+                              return actions.order.capture().then((details) => {
+                                const name = details.payer.name.given_name;
+                                this.handlePayment();
+                                // alert(Transaction completed by ${name});
+                              });
+                            }}
+                          />
+                        </PayPalScriptProvider>
+                      </button>
                     </div>
-                    
-                   
                   </div>
                 </div>
               </div>
