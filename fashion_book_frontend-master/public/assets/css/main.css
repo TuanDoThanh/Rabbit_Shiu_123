@@ -141,14 +141,48 @@
       .fa-google-plus:hover  {
         background:#CE3C2D;
       }
-      .header-middle{
+      .header-middle {
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
         z-index: 100;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+        transition: top 0.3s ease-in-out;
+        animation: headerFacein ease .5s;
+        transition: opacity 0.3s ease-in-out;
       }
+     
+     @keyframes headerFacein {
+      from{
+        transform: translateY(-150px);
+        opacity: 0;
+      }
+      to{
+        transform: translateY(0px);
+        opacity: 1;
+      }
+     }
+
+     .header-tittel{
+      float: right;
+      margin: 0;
+      padding: 0;
+      line-height: 90px;
+      margin-right: 26px;
+      color: #fff;
+      font-family: cursive;
+     }
+     .logo-header{
+      height: 90px;
+      max-height: 90px;
+     }
+  
+     
+  
+
+
+
       .ss_product{
         /* padding-top: 90px; */
       }
@@ -224,11 +258,11 @@
 
       .shop-menu ul li {
         display:inline-block;
-       padding: 10px 15px;
+       padding: 10px 20px;
       }
 
       .shop-menu ul li:last-child {
-        padding-right: 0;
+        padding-right: 20px;
       }
 
       .shop-menu ul li a {
@@ -263,7 +297,7 @@
 
       .navbar-collapse.collapse{
         padding-left: 0;
-        margin-top: 12px;
+        margin-top: 17px;
       }
 
 
@@ -372,11 +406,12 @@
         padding-left: 10px;
         background-repeat: no-repeat;
         background-position: 130px;
-        border-radius: 25px;
         width: 100%;
+        border-radius: 10px;
       }
       .pull-right{
         height: 90px;
+        margin-right: 48px;
       }
       /* .search_box.pull-right {
         width: 100%;
@@ -428,7 +463,7 @@
       .navbar-nav li ul.sub-menu li{
         padding: 10px 10px;
         display: block;
-        max-width: 200px;
+        max-width: 230px;
       }
 
       /* .navbar-nav li ul.sub-menu li:last-child{
@@ -1800,9 +1835,9 @@
       .logo img{
         width: 100%;
         height: 100%;
-        border-radius: 50%;
-        margin-left: 50px;
-        margin-top: 12px;
+        border-radius: 20%;
+        margin-left: 80px;
+        margin-top: 15px;
       }
       .content-404 h1 {
         color: #363432;

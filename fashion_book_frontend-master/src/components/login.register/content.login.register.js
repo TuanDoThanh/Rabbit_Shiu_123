@@ -30,7 +30,7 @@ function ContentLoginRegister({
         <div class="form-box">
           <div class="form-value">
             <div>
-              <h2 className="login-h2">Login</h2>
+              <h2 className="login-h2">Đăng Nhập</h2>
               <div className="noti">{notificationLogin}</div>
               <div class="inputbox">
                 <input
@@ -57,24 +57,24 @@ function ContentLoginRegister({
                   }}
                 />
                 <label className="login-label" for="">
-                  Password
+                  Mật Khẩu
                 </label>
               </div>
               <div class="forget">
                 <label className="login-label" for="">
                   <input className="login-input" type="checkbox" />
-                  Remember Me{" "}
+                  Nhớ tôi{" "}
                   <Link className="forgotpass" to="/forgotpass/">
-                    Forget password?
+                    Quên mật khẩu?
                   </Link>
                 </label>
               </div>
               <button className="login-btn" onClick={() => loginSubmit()}>
-                Log in
+                Đăng nhập
               </button>
               <div class="register">
                 <p>
-                  Don't have a account <a onClick={handleRegister}>Signup</a>
+                  Không có tài khoản <a onClick={handleRegister}>Đăng ký</a>
                 </p>
               </div>
             </div>
@@ -90,7 +90,7 @@ function ContentLoginRegister({
         <div class="form-box">
           <div class="form-value">
             <div>
-              <h2 className="login-h2">Signup</h2>
+              <h2 className="login-h2">Đăng ký</h2>
               <div className="noti">{notificationRegister}</div>
               <div class="inputbox">
                 <input
@@ -115,7 +115,7 @@ function ContentLoginRegister({
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <label className="login-label" for="">
-                  Password
+                  Mật khẩu
                 </label>
               </div>
               <div class="inputbox">
@@ -129,17 +129,17 @@ function ContentLoginRegister({
                   }}
                 />
                 <label className="login-label" for="">
-                  Confirm
+                  Xác nhận
                 </label>
               </div>
               <button className="login-btn" onClick={() => registerSubmit()}>
-                Signup
+                Đăng ký
               </button>
               <div class="register">
                 <p>
-                  Do you already have an account?{" "}
+                  Bạn đã có tài khoản chưa?{" "}
                   <a a onClick={handleLogin}>
-                    Log in
+                    Đăng nhập
                   </a>
                 </p>
               </div>

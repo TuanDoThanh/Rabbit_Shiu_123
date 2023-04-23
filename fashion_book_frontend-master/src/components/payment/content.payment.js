@@ -26,7 +26,6 @@ class ContentPayment extends Component {
     };
   }
   //phuong thuc thanh toan
- 
 
   // thong tin giao hang
   openModal = () => {
@@ -140,11 +139,11 @@ class ContentPayment extends Component {
               <table className="table table-condensed">
                 <thead>
                   <tr className="cart_menu">
-                    <td className="image">Product</td>
+                    <td className="image">Sản Phẩm</td>
                     <td className="description" />
-                    <td className="price">Price</td>
-                    <td className="quantity">Quantity</td>
-                    <td className="total">Total</td>
+                    <td className="price">Giá</td>
+                    <td className="quantity">Số Lượng</td>
+                    <td className="total">Tổng</td>
                     <td />
                   </tr>
                 </thead>
@@ -198,14 +197,14 @@ class ContentPayment extends Component {
                   <h2 className="total-sup shipping-unit">
                     <i class="fa fa-truck"></i> Shipping unit:{" "}
                     <span className="shipping-unit-span">
-                      International shipping
+                      Vận chuyển quốc tế
                     </span>
                   </h2>
                 </div>
                 <div class="col-md-4 total_area">
                   <div className="col-md-12">
                     <h2 className="total-sup">
-                      Transport fee:
+                      Phí vận chuyển:
                       <span className="total-sup">
                         0<sup className="total-sup">đ</sup>
                       </span>
@@ -213,7 +212,7 @@ class ContentPayment extends Component {
                   </div>
                   <div className="col-md-12">
                     <h2 className="total-sup">
-                      Total:
+                      Tổng:
                       <span className="total-sup">
                         {new Intl.NumberFormat("de-DE", {
                           currency: "EUR",
@@ -308,14 +307,14 @@ class ContentPayment extends Component {
                 <h4>Chọn phương thức thanh toán</h4>
                 <div className="col-md-12">
                   <div className="col-md-6">
-                  <button className="info_ship-btn">
-                  {"    "}Thanh toán khi nhận hàng
-                </button>
+                    <button className="info_ship-btn">
+                      {"    "}Thanh toán khi nhận hàng
+                    </button>
                   </div>
                   <div className="col-md-6">
-                  <button className="info_ship-btn">
-                  {"    "}Thanh toán bằng Paypal
-                </button>
+                    <button className="info_ship-btn">
+                      {"    "}Thanh toán bằng Paypal
+                    </button>
                   </div>
                 </div>
               </div>
@@ -333,7 +332,7 @@ class ContentPayment extends Component {
                         className="btn btn-default update"
                         onClick={() => this.handlePayment()}
                       >
-                        Payment
+                        Thanh Toán
                       </button>
                       <Modal
                         show={this.state.ispay}
@@ -343,7 +342,7 @@ class ContentPayment extends Component {
                       >
                         <Modal.Header closeButton>
                           <Modal.Title id="contained-modal-title">
-                            Notification
+                            Thông Báo
                           </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
@@ -370,7 +369,7 @@ class ContentPayment extends Component {
                       >
                         <Modal.Header closeButton>
                           <Modal.Title id="contained-modal-title">
-                            Notification
+                            Thông Báo
                           </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>Đặt Hang Thất Bại</Modal.Body>
@@ -380,13 +379,13 @@ class ContentPayment extends Component {
                               this.setState({ showpaymentfail: false })
                             }
                           >
-                            <a>Cancel</a>
+                            <a>Hủy</a>
                           </Button>
                         </Modal.Footer>
                       </Modal>
                     </div>
                     <div className="col-md-6">
-                      <button >
+                      <button>
                         <PayPalScriptProvider options={initialOptions}>
                           <PayPalButtons
                             createOrder={(data, actions) => {

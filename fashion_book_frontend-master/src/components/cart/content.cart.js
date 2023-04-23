@@ -35,12 +35,10 @@ class ContentCart extends Component {
     if (!this.props.islogin) {
       this.setState({ show: true });
       return;
-    }
-    else if (this.props.cart.length<1){
-      this.setState({ showtotal: true});
+    } else if (this.props.cart.length < 1) {
+      this.setState({ showtotal: true });
       return;
-    }
-    else {
+    } else {
       this.setState({ show: false });
       window.location.href = "/payment";
       return;
@@ -62,11 +60,11 @@ class ContentCart extends Component {
               <table className="table table-condensed">
                 <thead>
                   <tr className="cart_menu">
-                    <td className="image">Product</td>
+                    <td className="image">Sản Phẩm</td>
                     <td className="description" />
-                    <td className="price">Price</td>
-                    <td className="quantity">Quantity</td>
-                    <td className="total">Total</td>
+                    <td className="price">Giá</td>
+                    <td className="quantity">Số Lượng</td>
+                    <td className="total">Tổng tiền</td>
                     <td />
                   </tr>
                 </thead>
@@ -158,7 +156,7 @@ class ContentCart extends Component {
                 <div class="total_area">
                   <div className="col-md-6">
                     <h2>
-                      Total:
+                      Tổng:
                       <span>
                         {new Intl.NumberFormat("de-DE", {
                           currency: "EUR",
@@ -174,16 +172,16 @@ class ContentCart extends Component {
                     >
                       <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title">
-                          Notification
+                          Thông báo
                         </Modal.Title>
                       </Modal.Header>
                       <Modal.Body>Vui Lòng Đăng Nhập Để Thanh Toán</Modal.Body>
                       <Modal.Footer>
                         <Button onClick={() => this.setState({ show: false })}>
-                          <a>Cancel</a>
+                          <a>Hủy</a>
                         </Button>
                         <Button onClick={this.handleHide}>
-                          <Link to="/login_register">Login</Link>
+                          <Link to="/login_register">Đăng Nhập</Link>
                         </Button>
                       </Modal.Footer>
                     </Modal>
@@ -195,13 +193,15 @@ class ContentCart extends Component {
                     >
                       <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title">
-                          Notification
+                          Thông báo
                         </Modal.Title>
                       </Modal.Header>
                       <Modal.Body>Không có sản phẩm trong giỏ hàng!</Modal.Body>
                       <Modal.Footer>
-                        <Button onClick={() => this.setState({ showtotal: false })}>
-                          <a>Cancel</a>
+                        <Button
+                          onClick={() => this.setState({ showtotal: false })}
+                        >
+                          <a>Hủy</a>
                         </Button>
                         <Button onClick={this.handleHide}>
                           <Link to="/">Tiếp tục mua hàng</Link>
@@ -214,7 +214,7 @@ class ContentCart extends Component {
                       className="btn-Parchase"
                       onClick={() => this.handleParchase()}
                     >
-                      Purchase
+                      Mua Hàng
                     </button>
                   </div>
                 </div>
