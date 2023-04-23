@@ -26,17 +26,17 @@ class HistoryPurchase extends Component {
           return (
             <div className="table-responsive cart_info" style={{marginBottom: "50px"}}>
               
-              <span>Date: {new Date(element.date).toDateString("yyyy-MM-dd")}</span>
-              <p className='cart_total_price'>Total: {this.caculatorTotalBill(element.products)}<sup>đ</sup></p>
+              <span>Ngày: {new Date(element.date).toDateString("yyyy-MM-dd")}</span>
+              <p className='cart_total_price'>Tổng: {this.caculatorTotalBill(element.products)}<sup>đ</sup></p>
               
               <table className="table table-condensed">
                 <thead>
                   <tr className="cart_menu">
-                    <td className="image">Item</td>
+                    <td className="image">Mục</td>
                     <td className="description" />
-                    <td className="price">Price</td>
-                    <td className="quantity">Quantity</td>
-                    <td className="total">Total</td>
+                    <td className="price">Giá</td>
+                    <td className="quantity">Số Lượng</td>
+                    <td className="total">Tổng</td>
                     <td />
                   </tr>
                 </thead>
@@ -119,11 +119,11 @@ class HistoryPurchase extends Component {
               <table className="table table-condensed">
                 <thead>
                   <tr className="cart_menu">
-                    <td className="image">Item</td>
+                    <td className="image">Mục</td>
                     <td className="description" />
-                    <td className="price">Price</td>
-                    <td className="quantity">Quantity</td>
-                    <td className="total">Total</td>
+                    <td className="price">Giá</td>
+                    <td className="quantity">Số Lượng</td>
+                    <td className="total">Tổng</td>
                     <td />
                   </tr>
                 </thead>
@@ -200,11 +200,11 @@ class HistoryPurchase extends Component {
               <table className="table table-condensed">
                 <thead>
                   <tr className="cart_menu">
-                    <td className="image">Item</td>
+                    <td className="image">Mục</td>
                     <td className="description" />
-                    <td className="price">Price</td>
-                    <td className="quantity">Quantity</td>
-                    <td className="total">Total</td>
+                    <td className="price">Giá</td>
+                    <td className="quantity">Số Lượng</td>
+                    <td className="total">Tổng</td>
                     <td />
                   </tr>
                 </thead>

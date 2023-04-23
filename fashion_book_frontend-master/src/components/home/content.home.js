@@ -147,7 +147,7 @@ class ContentHome extends Component {
                     class="bestselling__heading-img"
                   />
                   <div class="bestselling__heading">
-                    Top best sellers of the week
+                    Top bán chạy nhất trong tuần
                   </div>
                 </div>
               </div>
@@ -215,7 +215,7 @@ class ContentHome extends Component {
                           name="optradio"
                           checked={this.state.check_1}
                         />
-                        All price
+                        Tất cả giá
                       </label>
                     </div>
                     <div className="radio item-price">

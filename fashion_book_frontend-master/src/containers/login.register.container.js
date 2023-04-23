@@ -49,31 +49,31 @@ class LoginRegisterContainer extends Component {
   };
   registerSubmit = async () => {
     if (!this.isvalidEmail(this.state.email)) {
-      this.setState({ notificationRegister: "Email invalid" });
+      this.setState({ notificationRegister: "Email không hợp lệ" });
       return;
     } else {
       this.setState({ notificationRegister: "" });
     }
     if (!this.isvalidPassword(this.state.password)) {
-      this.setState({ notificationRegister: "Password invalid" });
+      this.setState({ notificationRegister: "Mật khẩu không hợp lệ" });
       return;
     } else {
       this.setState({ notificationRegister: "" });
     }
     if (!this.isvalidConfirm(this.state.password, this.state.confirm)) {
-      this.setState({ notificationRegister: "Confirm invalid" });
+      this.setState({ notificationRegister: "Xác nhận không hợp lệ" });
       return;
     } else {
       this.setState({ notificationRegister: "" });
     }
     if (!this.isvalidFirstName(this.state.firstname)) {
-      this.setState({ notificationRegister: "Firstname invalid" });
+      this.setState({ notificationRegister: "Tên không hợp lệ" });
       return;
     } else {
       this.setState({ notificationRegister: "" });
     }
     if (!this.isvalidLastName(this.state.lastname)) {
-      this.setState({ notificationRegister: "Lastname invalid" });
+      this.setState({ notificationRegister: "Họ không hợp lệ" });
       return;
     } else {
       this.setState({ notificationRegister: "" });
@@ -88,18 +88,20 @@ class LoginRegisterContainer extends Component {
         phone_number: this.state.phone,
       });
     } catch (err) {
-      if (err.response.data.msg === "Email already exist")
-        this.setState({ notificationRegister: "Email already exist" });
-      else this.setState({ notificationRegister: "Registration failed" });
+      if (err.response.data.msg === "Email đã tồn tại")
+        this.setState({ notificationRegister: "Email đã tồn tại" });
+      else this.setState({ notificationRegister: "Đăng ký không thành công" });
       return;
     }
-    this.setState({ notificationRegister: "Sign Up Success" });
+    this.setState({
+      notificationRegister: "Vui lòng kiểm tra email",
+    });
     // window.location.replace('/')
   };
 
   loginSubmit = async () => {
     if (!this.isvalidEmail(this.state.emailLogin)) {
-      this.setState({ notificationLogin: "Email invalid" });
+      this.setState({ notificationLogin: "Email không hợp lệ" });
       return;
     } else {
       this.setState({ notificationLogin: "" });
@@ -114,14 +116,15 @@ class LoginRegisterContainer extends Component {
       if (err.response !== undefined) {
         if (err.response.data.msg === "no_registration_confirmation")
           this.setState({
-            notificationLogin:
-              "Account Not Activated!",
+            notificationLogin: "Tài khoản chưa được kích hoạt!",
           });
         else {
-          this.setState({ notificationLogin: "Email or password invalid" });
+          this.setState({
+            notificationLogin: "Email hoặc mật khẩu không hợp lệ",
+          });
         }
       } else {
-        this.setState({ notificationLogin: "Some thing went wrong" });
+        this.setState({ notificationLogin: "Đã xảy ra sự cố" });
       }
       return;
     }

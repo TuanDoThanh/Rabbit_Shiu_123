@@ -4,66 +4,77 @@ class EnterNewPassword extends Component {
   constructor() {
     super();
     this.state = {
-        newpassword: '',
-        confirm: '',
-        noti:''
-    }
+      newpassword: "",
+      confirm: "",
+      noti: "",
+    };
   }
   handleSubmit() {
-    if(this.state.newpassword.length < 6) {
-        this.setState({noti:'Password must contain at least 6 characters'})
-        return
+    if (this.state.newpassword.length < 6) {
+      this.setState({ noti: "Mật khẩu phải chứa ít nhất 6 ký tự" });
+      return;
     } else {
-        this.setState({noti: ''})
+      this.setState({ noti: "" });
     }
-    if(this.state.confirm !== this.state.newpassword) {
-        this.setState({
-            noti: 'Confirm invalid'
-        })
-        return
+    if (this.state.confirm !== this.state.newpassword) {
+      this.setState({
+        noti: "Xác nhận không hợp lệ",
+      });
+      return;
     } else {
-        this.setState({noti: ''})
+      this.setState({ noti: "" });
     }
     this.props.submitEnterNewPassword();
   }
   render() {
     return (
-      <div className='login-ss'>
+      <div className="login-ss">
         <div class="form-box">
-                <div class="form-value">
-                    <div>
-                        <h2 className='login-h2'>ENTER NEW PASSWORD</h2>
-                        <p style={{ color: "tomato" }}>{this.state.noti}</p>
-                        <div class="inputbox">
-                            <input 
-                            className='login-input' 
-                            type="password" 
-                            required placeholder=""
-                            onChange={e => {this.props.setNewPassword(e.target.value) 
-                            this.setState({newpassword: e.target.value})}}/>
-                            <label className='login-label' for="">New Password</label>
-                        </div>
-                        <div class="inputbox">
-                            <input 
-                            className='login-input' 
-                            type="password" 
-                            required placeholder=""
-                            onChange={e => {this.props.setConfirm(e.target.value)
-                            this.setState({confirm: e.target.value})}}/>
-                            <label className='login-label' for="">Confirm Password</label>
-                        </div>
-                        <button className='login-btn' onClick={() => this.handleSubmit()}><Link to="/login_register">Submit</Link></button>
-                        <div class="register">
-                            <p><Link to="/login_register">Back</Link></p>
-                        </div>
-                    </div>
-                   
-                </div>
+          <div class="form-value">
+            <div>
+              <h2 className="login-h2">NHẬP MẬT KHẨU MỚI</h2>
+              <p style={{ color: "tomato" }}>{this.state.noti}</p>
+              <div class="inputbox">
+                <input
+                  className="login-input"
+                  type="password"
+                  required
+                  placeholder=""
+                  onChange={(e) => {
+                    this.props.setNewPassword(e.target.value);
+                    this.setState({ newpassword: e.target.value });
+                  }}
+                />
+                <label className="login-label" for="">
+                  Mật khẩu mới
+                </label>
               </div>
-
-
-
-
+              <div class="inputbox">
+                <input
+                  className="login-input"
+                  type="password"
+                  required
+                  placeholder=""
+                  onChange={(e) => {
+                    this.props.setConfirm(e.target.value);
+                    this.setState({ confirm: e.target.value });
+                  }}
+                />
+                <label className="login-label" for="">
+                  Xác nhận mật khẩu
+                </label>
+              </div>
+              <button className="login-btn" onClick={() => this.handleSubmit()}>
+                <Link to="/login_register">Chấp Nhận</Link>
+              </button>
+              <div class="register">
+                <p>
+                  <Link to="/login_register">Trở về</Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* <div className="logo-404">
         <div className='null-cart'>
