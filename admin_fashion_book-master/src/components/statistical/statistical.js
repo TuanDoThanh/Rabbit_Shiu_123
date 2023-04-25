@@ -24,7 +24,7 @@ class Statistical extends Component {
       billNumberQuauter: null,
       productNumberQuauter: null,
       UserNumberQuauter: null,
-      totalQuauter: null
+      totalQuauter: null,
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -33,7 +33,7 @@ class Statistical extends Component {
         billNumberDay: nextProps.dataByDay.length,
         productNumberDay: this.calculatorProductNumber(nextProps.dataByDay),
         UserNumberDay: this.calculatorUserNumber(nextProps.dataByDay),
-        totalDay: this.calculatorTotal(nextProps.dataByDay)
+        totalDay: this.calculatorTotal(nextProps.dataByDay),
       });
     }
     if (nextProps.dataByMonth !== this.props.dataByMonth) {
@@ -41,7 +41,7 @@ class Statistical extends Component {
         billNumberMonth: nextProps.dataByMonth.length,
         productNumberMonth: this.calculatorProductNumber(nextProps.dataByMonth),
         UserNumberMonth: this.calculatorUserNumber(nextProps.dataByMonth),
-        totalMonth: this.calculatorTotal(nextProps.dataByMonth)
+        totalMonth: this.calculatorTotal(nextProps.dataByMonth),
       });
     }
     if (nextProps.dataByYear !== this.props.dataByYear) {
@@ -49,19 +49,21 @@ class Statistical extends Component {
         billNumberYear: nextProps.dataByYear.length,
         productNumberYear: this.calculatorProductNumber(nextProps.dataByYear),
         UserNumberYear: this.calculatorUserNumber(nextProps.dataByYear),
-        totalYear: this.calculatorTotal(nextProps.dataByYear)
+        totalYear: this.calculatorTotal(nextProps.dataByYear),
       });
     }
     if (nextProps.dataByQuauter !== this.props.dataByQuauter) {
       this.setState({
         billNumberQuauter: nextProps.dataByQuauter.length,
-        productNumberQuauter: this.calculatorProductNumber(nextProps.dataByQuauter),
+        productNumberQuauter: this.calculatorProductNumber(
+          nextProps.dataByQuauter
+        ),
         UserNumberQuauter: this.calculatorUserNumber(nextProps.dataByQuauter),
-        totalQuauter: this.calculatorTotal(nextProps.dataByQuauter)
+        totalQuauter: this.calculatorTotal(nextProps.dataByQuauter),
       });
     }
   }
-  calculatorTotal = bills => {
+  calculatorTotal = (bills) => {
     let total = 0;
     for (let i = 0; i < bills.length; i++) {
       for (let k = 0; k < bills[i].products.length; k++) {
@@ -72,7 +74,7 @@ class Statistical extends Component {
     }
     return total;
   };
-  calculatorProductNumber = bills => {
+  calculatorProductNumber = (bills) => {
     let total = 0;
     for (let i = 0; i < bills.length; i++) {
       for (let k = 0; k < bills[i].products.length; k++) {
@@ -81,7 +83,7 @@ class Statistical extends Component {
     }
     return total;
   };
-  calculatorUserNumber = bills => {
+  calculatorUserNumber = (bills) => {
     let arr = [];
     for (let i = 0; i < bills.length; i++) {
       if (arr.indexOf(bills.id_user) === -1) {
@@ -94,7 +96,7 @@ class Statistical extends Component {
     let year = this.state.year;
     let check = true;
     if (year.length === 0) {
-      this.setState({ notiGetYear: "Please enter Year" });
+      this.setState({ notiGetYear: "Vui lòng nhập Năm" });
       return;
     } else {
       this.setState({ notiGetYear: "" });
@@ -106,14 +108,14 @@ class Statistical extends Component {
       }
     }
     if (check === false) {
-      this.setState({ notiGetYear: "Year invalid" });
+      this.setState({ notiGetYear: "Năm không hợp lệ" });
       return;
     } else {
       this.setState({ notiGetYear: "" });
     }
     if (parseInt(year) < 1990 || parseInt(year) > 3000) {
       this.setState({
-        notiGetYear: "Year range 1990 - 3000"
+        notiGetYear: "Phạm vi năm 1990 - 3000",
       });
       return;
     } else {
@@ -127,22 +129,22 @@ class Statistical extends Component {
     let check = true;
     if (year.length === 0) {
       this.setState({
-        notiYearQuauter: "Please enter year"
+        notiYearQuauter: "Vui lòng nhập năm",
       });
       check = false;
     } else {
       this.setState({
-        notiYearQuauter: ""
+        notiYearQuauter: "",
       });
     }
     if (quauter.length === 0) {
       this.setState({
-        notiQuauter: "Please enter quauter"
+        notiQuauter: "Vui lòng nhập quý",
       });
       check = false;
     } else {
       this.setState({
-        notiQuauter: ""
+        notiQuauter: "",
       });
     }
     if (check === false) {
@@ -156,14 +158,14 @@ class Statistical extends Component {
       }
     }
     if (check === false) {
-      this.setState({ notiYearQuauter: "Year invalid" });
+      this.setState({ notiYearQuauter: "Năm không hợp lệ" });
       return;
     } else {
       this.setState({ notiYearQuauter: "" });
     }
     if (parseInt(year) < 1990 || parseInt(year) > 3000) {
       this.setState({
-        notiYearQuauter: "Year range 1990 - 3000"
+        notiYearQuauter: "Phạm vi năm 1990 - 3000",
       });
       return;
     } else {
@@ -178,14 +180,14 @@ class Statistical extends Component {
       }
     }
     if (check === false) {
-      this.setState({ notiQuauter: "Quauter invalid" });
+      this.setState({ notiQuauter: "Quý không hợp lệ" });
       return;
     } else {
       this.setState({ notiQuauter: "" });
     }
     if (parseInt(quauter) < 1 || parseInt(quauter) > 4) {
       this.setState({
-        notiQuauter: "Year range 1 - 4"
+        notiQuauter: "Năm phạm vi 1 - 4",
       });
       return;
     } else {
@@ -200,15 +202,16 @@ class Statistical extends Component {
           <div class="row">
             <div class="col-lg-12">
               <h3 class="page-header">
-                <i class="fa fa-table" /> STATISTICAL
+                <i class="fa fa-table" /> Thống Kê
               </h3>
               <ol class="breadcrumb">
                 <li>
                   <i class="fa fa-home" />
-                  <a href="index.html">Home</a>
+                  <a href="index.html">Trang Chủ</a>
                 </li>
                 <li>
-                  <i class="fa fa-table" />Statistical
+                  <i class="fa fa-table" />
+                  Thống Kê
                 </li>
               </ol>
             </div>
@@ -217,17 +220,17 @@ class Statistical extends Component {
             <div className="col-lg-12">
               <section className="panel">
                 <header className="panel-heading">
-                  STATISTICS BY DAY
-                  <span style={{ marginLeft: "50px" }}>Select Day</span>
+                  Thống kê theo ngày
+                  <span style={{ marginLeft: "50px" }}>Chọn ngày</span>
                   <input
                     type="date"
                     style={{
                       marginLeft: "10px",
                       height: "30px",
                       backgroundColor: "#F7F7F7",
-                      borderRadius: "5px"
+                      borderRadius: "5px",
                     }}
-                    onChange={e =>
+                    onChange={(e) =>
                       this.props.getStatisticalByDay(e.target.value)
                     }
                   />
@@ -237,7 +240,7 @@ class Statistical extends Component {
                   <table className="table">
                     <thead>
                       <tr>
-                      <th>Số Đơn Hàng</th>
+                        <th>Số Đơn Hàng</th>
                         <th>Số Sản Phẩm </th>
                         <th>Số Người Mua</th>
                         <th>Tổng Thu</th>
@@ -260,17 +263,17 @@ class Statistical extends Component {
             <div className="col-lg-12">
               <section className="panel">
                 <header className="panel-heading">
-                  STATISTICS BY MONTH
-                  <span style={{ marginLeft: "50px" }}>Select Month</span>
+                  Thống kê theo tháng
+                  <span style={{ marginLeft: "50px" }}>Chọn Tháng</span>
                   <input
                     type="month"
                     style={{
                       marginLeft: "10px",
                       height: "30px",
                       backgroundColor: "#F7F7F7",
-                      borderRadius: "5px"
+                      borderRadius: "5px",
                     }}
-                    onChange={e =>
+                    onChange={(e) =>
                       this.props.getStatisticalByMonth(e.target.value)
                     }
                   />
@@ -280,7 +283,7 @@ class Statistical extends Component {
                   <table className="table">
                     <thead>
                       <tr>
-                      <th>Số Đơn Hàng</th>
+                        <th>Số Đơn Hàng</th>
                         <th>Số Sản Phẩm </th>
                         <th>Số Người Mua</th>
                         <th>Tổng Thu</th>
@@ -303,23 +306,23 @@ class Statistical extends Component {
             <div className="col-lg-12">
               <section className="panel">
                 <header className="panel-heading">
-                  STATISTICS BY YEAR
-                  <span style={{ marginLeft: "50px" }}>Select Year</span>
+                  Thống kê theo năm
+                  <span style={{ marginLeft: "50px" }}>Chọn Năm</span>
                   <input
                     type="text"
                     style={{
                       marginLeft: "10px",
                       height: "30px",
                       backgroundColor: "#F7F7F7",
-                      borderRadius: "5px"
+                      borderRadius: "5px",
                     }}
                     min="2000"
-                    onKeyDown={e => {
+                    onKeyDown={(e) => {
                       if (e.keyCode === 13) {
                         this.handleGetStatisticalByYear();
                       }
                     }}
-                    onChange={e => this.setState({ year: e.target.value })}
+                    onChange={(e) => this.setState({ year: e.target.value })}
                   />
                   <span style={{ marginLeft: "50px" }}>
                     {this.state.notiGetYear}
@@ -349,7 +352,6 @@ class Statistical extends Component {
               </section>
             </div>
           </div>
-      
         </section>
       </section>
     );

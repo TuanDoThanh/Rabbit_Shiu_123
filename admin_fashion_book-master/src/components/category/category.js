@@ -9,7 +9,7 @@ class Category extends Component {
       name: null,
       id: null,
       noti: null,
-      currType: "add"
+      currType: "add",
     };
   }
   componentWillMount() {
@@ -29,25 +29,25 @@ class Category extends Component {
     }
     if (nextProps.isadd === false) {
       this.setState({
-        noti: "Please Change name"
+        noti: "Please Change name",
       });
     } else if (nextProps.isadd === true) {
       this.setState({
         noti: "",
         name: "",
-        currType: "add"
+        currType: "add",
       });
     }
     if (nextProps.isupdate === false) {
       this.setState({
-        noti: "update fail"
+        noti: "update fail",
       });
     } else if (nextProps.isupdate === true) {
       this.setState({
         noti: "",
         id: null,
         name: "",
-        currType: "add"
+        currType: "add",
       });
     }
   }
@@ -98,7 +98,7 @@ class Category extends Component {
               style={{}}
               className="btn-custom"
             >
-              Add
+              Thêm
             </button>
             <button
               disabled
@@ -107,13 +107,10 @@ class Category extends Component {
               }
               className="btn-custom"
             >
-              Update
+              Cập Nhật
             </button>
-            <button
-              onClick={() => this.reset()}
-              className="btn-custom"
-            >
-              Reset
+            <button onClick={() => this.reset()} className="btn-custom">
+              Tải Lại
             </button>
           </div>
         </div>
@@ -123,7 +120,7 @@ class Category extends Component {
         <div className="form-group">
           <div className="col-lg-offset-2 col-lg-10">
             <button disabled onClick={() => this.add()} className="btn-custom">
-              Add
+              Thêm
             </button>
             <button
               onClick={() =>
@@ -131,13 +128,10 @@ class Category extends Component {
               }
               className="btn-custom"
             >
-              Update
+              Cập Nhật
             </button>
-            <button
-              onClick={() => this.reset()}
-              className="btn-custom"
-            >
-              Reset
+            <button onClick={() => this.reset()} className="btn-custom">
+              Tải Lại
             </button>
           </div>
         </div>
@@ -145,13 +139,13 @@ class Category extends Component {
     }
   };
   reset = () => {
-      this.setState({
-        noti: "",
-        id: null,
-        name: "",
-        currType: "add"
-      })
-  }
+    this.setState({
+      noti: "",
+      id: null,
+      name: "",
+      currType: "add",
+    });
+  };
 
   render() {
     return (
@@ -159,18 +153,20 @@ class Category extends Component {
         <div className="row">
           <div className="col-lg-12">
             <h3 className="page-header">
-              <i className="fa fa-table" /> Table
+              <i className="fa fa-table" /> Bảng
             </h3>
             <ol className="breadcrumb">
               <li>
                 <i className="fa fa-home" />
-                <Link to="/">Home</Link>
+                <Link to="/">Trang Chủ</Link>
               </li>
               <li>
-                <i className="fa fa-table" />Table
+                <i className="fa fa-table" />
+                Bảng
               </li>
               <li>
-                <i className="fa fa-th-list" />Category Manager
+                <i className="fa fa-th-list" />
+                Trình quản lý danh mục
               </li>
             </ol>
           </div>
@@ -183,10 +179,10 @@ class Category extends Component {
                 <tbody>
                   <tr>
                     <th>
-                      <i className="icon_profile" /> Name
+                      <i className="icon_profile" /> Tên
                     </th>
                     <th>
-                      <i className="icon_cogs" /> Action
+                      <i className="icon_cogs" /> Hành Động
                     </th>
                   </tr>
                   {this.props.category.map((element, index) => {
@@ -201,7 +197,7 @@ class Category extends Component {
                                   currname: element.name,
                                   name: element.name,
                                   id: element._id,
-                                  currType: "update"
+                                  currType: "update",
                                 })
                               }
                               className="btn btn-success"
@@ -222,7 +218,7 @@ class Category extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Form validations</header>
+              <header className="panel-heading">Xác thực biểu mẫu</header>
               <div className="panel-body">
                 <div className="form">
                   <div className="form-validate form-horizontal">
@@ -232,9 +228,9 @@ class Category extends Component {
                       </label>
                       <div className="col-lg-10">
                         <input
-                          onChange={e => {
+                          onChange={(e) => {
                             this.setState({
-                              name: e.target.value
+                              name: e.target.value,
                             });
                           }}
                           value={this.state.name}

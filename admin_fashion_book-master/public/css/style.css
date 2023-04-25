@@ -9951,3 +9951,12 @@
     #sendmessage.show, #errormessage.show, .show {
         display:block;
     }
+
+
+
+    .statistical{
+        margin: 30px 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
