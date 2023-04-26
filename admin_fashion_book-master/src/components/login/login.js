@@ -4,7 +4,7 @@ class Login extends Component {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
   }
   render() {
@@ -16,7 +16,9 @@ class Login extends Component {
               <p className="login-img">
                 <i className="icon_lock_alt" />
               </p>
-              <center>{this.props.notiLogin ? this.props.notiLogin: ''}</center>
+              <center>
+                {this.props.notiLogin ? this.props.notiLogin : ""}
+              </center>
               <div className="input-group">
                 <span className="input-group-addon">
                   <i className="icon_profile" />
@@ -27,7 +29,7 @@ class Login extends Component {
                   placeholder="Username"
                   autoFocus
                   value={this.state.email}
-                  onChange={(e) => this.setState({email: e.target.value})}
+                  onChange={(e) => this.setState({ email: e.target.value })}
                 />
               </div>
               <div className="input-group">
@@ -37,21 +39,25 @@ class Login extends Component {
                 <input
                   type="password"
                   className="form-control"
-                  placeholder="Password"
+                  placeholder="Mật khẩu"
                   value={this.state.password}
-                  onChange={(e) => this.setState({password: e.target.value})}
+                  onChange={(e) => this.setState({ password: e.target.value })}
                 />
               </div>
               <label className="checkbox">
-                <input type="checkbox" value="remember-me" /> Remember me
+                <input type="checkbox" value="remember-me" /> Nhớ tôi
                 <span className="pull-right">
                   {" "}
-                  <a href="#"> Forgot Password?</a>
+                  <a href="#"> Quên mật khẩu?</a>
                 </span>
               </label>
-              <button className="btn btn-primary btn-lg btn-block"
-               onClick={() => this.props.loginSubmit(this.state.email, this.state.password)}>
-                Login
+              <button
+                className="btn btn-primary btn-lg btn-block"
+                onClick={() =>
+                  this.props.loginSubmit(this.state.email, this.state.password)
+                }
+              >
+                Đăng nhập
               </button>
             </div>
           </div>

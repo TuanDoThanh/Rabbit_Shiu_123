@@ -3,7 +3,7 @@ import { Link} from 'react-router-dom'
 const NotFound = () => (
     <div className="container text-center">
 		<div className="logo-404">
-			<Link to="/"><img src="/assets/images/home/logo.png" alt="" /></Link>
+			<Link to="/"><img src="/assets/images/home/logoRp1.jpg" alt="" /></Link>
 		</div>
 		<div className="content-404">
 			<img src="/assets/images/404/404.png" className="img-responsive" alt="" />

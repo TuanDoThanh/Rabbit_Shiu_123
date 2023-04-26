@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as userActions from "../actions/user.action";
 import Login from "../components/login/login";
-import  { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 class LoginContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notiLogin: ""
+      notiLogin: "",
     };
   }
   loginSubmit = async (email, password) => {
@@ -23,24 +23,24 @@ class LoginContainer extends Component {
     try {
       res = await axios.post(`/admin/login`, {
         email: email,
-        password: password
+        password: password,
       });
     } catch (err) {
       if (err.response !== undefined) {
         if (err.response.data.msg === "no_registration_confirmation")
-          this.setState({ notiLogin: "The account has not been activated" });
+          this.setState({ notiLogin: "Tài khoản chưa được kích hoạt" });
         else {
-          this.setState({ notiLogin: "Email or password invalid" });
+          this.setState({ notiLogin: "Email hoặc mật khẩu không hợp lệ" });
         }
       } else {
-        this.setState({ notiLogin: "Some thing went wrong" });
+        this.setState({ notiLogin: "Đã xảy ra sự cố" });
       }
       return;
     }
     this.props.userActions.loginSuccess(res.data.token, res.data.user);
-    window.location.replace('/')
+    window.location.replace("/");
   };
-  isvalidEmail = email => {
+  isvalidEmail = (email) => {
     if (email === "" || email.indexOf("@") === -1 || email.indexOf(".") === -1)
       return false;
     return true;
@@ -56,16 +56,13 @@ class LoginContainer extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-    islogin: state.userReducers.user.islogin
+const mapStateToProps = (state) => ({
+  islogin: state.userReducers.user.islogin,
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    userActions: bindActionCreators(userActions, dispatch)
+    userActions: bindActionCreators(userActions, dispatch),
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

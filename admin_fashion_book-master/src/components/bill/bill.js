@@ -68,18 +68,18 @@ class Bill extends Component {
         <div className="row">
           <div className="col-lg-12">
             <h3 className="page-header">
-              <i className="fa fa-table" /> Table
+              <i className="fa fa-table" /> Bảng
             </h3>
             <ol className="breadcrumb">
               <li>
                 <i className="fa fa-home" />
-                <Link to="/">Home</Link>
+                <Link to="/">Trang Chủ</Link>
               </li>
               <li>
-                <i className="fa fa-table" />Table
+                <i className="fa fa-table" />Bảng
               </li>
               <li>
-                <i className="fa fa-th-list" />Bill Manager
+                <i className="fa fa-th-list" />Quản lý hóa đơn
               </li>
             </ol>
           </div>
@@ -88,9 +88,9 @@ class Bill extends Component {
           <div className="col-lg-12">
             <section className="panel">
               <header className="panel-heading">
-                Advanced Table
+              Bảng nâng cao
                 <span style={{ marginLeft: "50px", marginRight: "30px" }}>
-                  Select Day
+                Chọn ngày
                 </span>
                 <select onChange={e => this.props.getBill(e.target.value)}>
                   <option
@@ -99,7 +99,7 @@ class Bill extends Component {
                     selected
                     style={{ display: "none" }}
                   >
-                    Status
+                    Trạng thái
                   </option>
                   <option value="99">Đang Chờ Xử Lý</option>
                   <option value="0">Đang Giao Hàng</option>
@@ -110,11 +110,11 @@ class Bill extends Component {
               <table className="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Date</th>
-                    <th>Products</th>
+                    <th>Tên</th>
+                    <th>Địa Chỉ</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Ngày</th>
+                    <th>Sản Phẩm</th>
                   </tr>
                   {this.props.bill.map((element, index) => {
                     return (

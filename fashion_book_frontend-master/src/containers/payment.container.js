@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import Cart from "../components/cart/cart";
+import Payment from "../components/payment/payment";
 import * as productActions from "../actions/product.action";
 import * as homeActions from "../actions/home.action";
 import * as userActions from "../actions/user.action";
+import * as paymentActions from "../actions/payment.action";
 import * as cartActions from "../actions/cart.action";
-class CartContainer extends Component {
+class PaymentContainer extends Component {
   constructor() {
     super();
   }
@@ -16,18 +17,15 @@ class CartContainer extends Component {
   }
   render() {
     return (
-      <Cart
+      <Payment
         islogin={this.props.islogin}
         logout={() => this.props.actions.logout()}
         searchTextSubmit={() => this.props.homeActions.searchTextSubmit()}
         setSearchText={(value) => this.props.homeActions.setSearchText(value)}
         history={this.props.history}
         cart={this.props.cart}
-        updateProductInCart={(product) =>
-          this.props.cartActions.updateProductInCart(product)
-        }
-        deteleProductInCart={(id_product) =>
-          this.props.cartActions.deteleProductInCart(id_product)
+        payment={(address, phone, name, total) =>
+          this.props.paymentActions.payment(address, phone, name, total)
         }
         ispay={this.props.ispay}
       />
@@ -46,6 +44,7 @@ const mapDispatchToProps = (dispatch) => {
     homeActions: bindActionCreators(homeActions, dispatch),
     productActions: bindActionCreators(productActions, dispatch),
     cartActions: bindActionCreators(cartActions, dispatch),
+    paymentActions: bindActionCreators(paymentActions, dispatch),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(PaymentContainer);
