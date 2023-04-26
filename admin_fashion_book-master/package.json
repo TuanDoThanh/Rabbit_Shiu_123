@@ -24,13 +24,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-<<<<<<< HEAD
-=======
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4"
   },
->>>>>>> 2b2d6c85718a90bd3eb313598be5b6bdc7627ef8
   "browserslist": [
     ">0.2%",
     "not dead",
