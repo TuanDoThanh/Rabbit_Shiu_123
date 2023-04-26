@@ -26,8 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
-    "babel-loader": "^9.1.2"
+    "@babel/preset-env": "^7.21.4"
   },
   "browserslist": [
     ">0.2%",
