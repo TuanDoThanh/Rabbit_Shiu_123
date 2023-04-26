@@ -12,7 +12,7 @@ class Slider extends Component {
             </a>
           </li>
           <li className="sub-menu">
-            <a href="/" className="">
+            <a href="javascript:" className="">
               <i className="icon_document_alt"></i>
               <span>Quản Lý Sách</span>
               <span className="menu-arrow arrow_carrot-right"></span>
