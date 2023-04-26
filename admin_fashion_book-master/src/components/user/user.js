@@ -424,20 +424,20 @@ class User extends Component {
         <div className="row">
           <div className="col-lg-12">
             <h3 className="page-header">
-              <i className="fa fa-table" /> Table
+              <i className="fa fa-table" /> Bảng
             </h3>
             <ol className="breadcrumb">
               <li>
                 <i className="fa fa-home" />
-                <Link to="/">Home</Link>
+                <Link to="/">Trang Chủ</Link>
               </li>
               <li>
                 <i className="fa fa-table" />
-                Table
+                Bảng
               </li>
               <li>
                 <i className="fa fa-th-list" />
-                User Manager
+                Quản lý người dùng
               </li>
             </ol>
           </div>
@@ -445,7 +445,7 @@ class User extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Advanced Table</header>
+              <header className="panel-heading">Bảng nâng cao</header>
               <table className="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
@@ -459,23 +459,23 @@ class User extends Component {
                     </th>
                     <th>
                       <i className="icon_profile" />
-                      First name
+                      Tên
                     </th>
                     <th>
                       <i className="icon_profile" />
-                      Last name
+                      Họ
                     </th>
                     <th>
                       <i className="icon_profile" />
-                      Address
+                      Địa Chỉ
                     </th>
                     <th>
                       <i className="icon_profile" />
-                      PhoneNumber
+                      Số Điện Thoại
                     </th>
                     <th>
                       <i className="icon_cogs" />
-                      Action
+                      Hành Động
                     </th>
                   </tr>
                   {this.props.user.map((element, index) => {
@@ -571,7 +571,7 @@ class User extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Form validations</header>
+              <header className="panel-heading">Xác thực biểu mẫu</header>
               <div className="panel-body">
                 <div className="form">
                   <div className="form-validate form-horizontal">
@@ -579,7 +579,7 @@ class User extends Component {
                     {this.renderPassword()}
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        First Name <span className="required" />
+                        Tên <span className="required" />
                       </label>
                       <div className="col-lg-10">
                         <input
@@ -600,7 +600,7 @@ class User extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Last Name
+                        Họ
                         <span className="required" />
                       </label>
                       <div className="col-lg-10">
@@ -622,7 +622,7 @@ class User extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Address
+                        Địa Chỉ
                         <span className="required" />
                       </label>
                       <div className="col-lg-10">
@@ -644,7 +644,7 @@ class User extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Phone number
+                        Số Điện Thoại
                         <span className="required" />
                       </label>
                       <div className="col-lg-10">
@@ -683,7 +683,7 @@ class User extends Component {
                               type="radio"
                               name="optradio"
                             />
-                            User
+                            Người Dùng
                           </label>
                         </form>
                       </div>

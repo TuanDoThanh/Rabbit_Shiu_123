@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import BookSold from "../statistical/BookSold";
+import RevenueMonth from "../statistical/ReveneMouth";
 class Home extends Component {
   constructor() {
     super();
     this.state = {
-      sum: 1000
+      sum: 1000,
     };
   }
   tinh(count) {
@@ -17,7 +19,7 @@ class Home extends Component {
             <div className="row">
               <div className="col-lg-12">
                 <h3 className="page-header">
-                  <i className="fa fa-laptop" /> Dashboard
+                  <i className="fa fa-laptop" /> BẢNG ĐIỀU KHIỂN
                 </h3>
                 <ol className="breadcrumb">
                   <li>
@@ -25,7 +27,8 @@ class Home extends Component {
                     <a href="index.html">Home</a>
                   </li>
                   <li>
-                    <i className="fa fa-laptop" />Dashboard
+                    <i className="fa fa-laptop" />
+                    BẢNG ĐIỀU KHIỂN
                   </li>
                 </ol>
               </div>
@@ -62,8 +65,10 @@ class Home extends Component {
                 </div>
               </div>
             </div> */}
-
-            
+            <div className="statistical">
+              <RevenueMonth></RevenueMonth>
+              <BookSold></BookSold>
+            </div>
 
             <div className="row">
               <div className="col-lg-12">
@@ -72,7 +77,8 @@ class Home extends Component {
                     <h2>
                       <i className="fa fa-flag-o red" />
                       <strong>
-                        Digital sales number(percent percentage of 1000 products)
+                        Digital sales number(percent percentage of 1000
+                        products)
                       </strong>
                     </h2>
                     {/* <div className="panel-actions">
@@ -100,18 +106,17 @@ class Home extends Component {
                       </thead>
                       <tbody>
                         {this.props.top_product.map((element, index) => {
-                          return(
-                            <tr>
-                            <td>
-                              <div className='home-image'>
-                                <img src={element.img}/>
-                              </div>
-                              
-                            </td>
-                            <td>{element.name}</td>
-                            <td>{element.price}</td>
-                            <td>{element.count}</td>
-                            {/* <td>
+                          return (
+                            <tr key={index}>
+                              <td>
+                                <div className="home-image">
+                                  <img src={element.img} />
+                                </div>
+                              </td>
+                              <td>{element.name}</td>
+                              <td>{element.price}</td>
+                              <td>{element.count}</td>
+                              {/* <td>
                               <div className="progress thin">
                                 <div
                                   className="progress-bar progress-bar-danger"
@@ -124,25 +129,18 @@ class Home extends Component {
                               </div>
                               <span className="sr-only">73%</span>
                             </td> */}
-                          </tr>
-                          ) 
+                            </tr>
+                          );
                         })}
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
-
-              
-            
             </div>
 
-         
             <br />
-   
-
           </section>
-          
         </section>
       </div>
     );

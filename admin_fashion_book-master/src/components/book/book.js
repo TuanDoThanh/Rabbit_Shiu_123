@@ -21,7 +21,7 @@ class Book extends Component {
       id_author: "",
       id_category: "",
       noti: "",
-      id: null
+      id: null,
     };
   }
   componentWillMount() {
@@ -41,14 +41,14 @@ class Book extends Component {
     }
     if (nextProps.book !== null) {
       this.setState({
-        imagePreviewUrl: nextProps.book.img
+        imagePreviewUrl: nextProps.book.img,
       });
     }
     if (nextProps.isadd === true) {
-      this.reset()
-    } 
-    if(nextProps.isupdate === true) {
-      this.reset()
+      this.reset();
+    }
+    if (nextProps.isupdate === true) {
+      this.reset();
     }
   }
   renderPagination() {
@@ -85,19 +85,18 @@ class Book extends Component {
       );
     }
   }
-  handleChangeImg = img => {
-    if(img === undefined)
-      return
+  handleChangeImg = (img) => {
+    if (img === undefined) return;
     let reader = new FileReader();
     reader.onloadend = () => {
       this.setState({
         file: img,
-        img: reader.result
+        img: reader.result,
       });
     };
     reader.readAsDataURL(img);
   };
-  invalidPrice = t => {
+  invalidPrice = (t) => {
     var str = t.toString();
     let count = 0;
     for (let i = 0; i < str.length; i++) {
@@ -124,77 +123,77 @@ class Book extends Component {
       describe,
       id_nsx,
       id_author,
-      file
+      file,
     } = this.state;
     if (name.length <= 0) {
       this.setState({
-        noti: "Name invalid"
+        noti: "Name invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (release_date === null) {
       this.setState({
-        noti: "Day invalid"
+        noti: "Day invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (!this.invalidPrice(price)) {
       this.setState({
-        noti: "Price invalid"
+        noti: "Price invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (id_category === "") {
       this.setState({
-        noti: "Category invalid"
+        noti: "Category invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (id_author === "") {
       this.setState({
-        noti: "Author invalid"
+        noti: "Author invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
 
     if (id_nsx === "") {
       this.setState({
-        noti: "Publisher invalid"
+        noti: "Publisher invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (file === null) {
       this.setState({
-        noti: "File invalid"
+        noti: "File invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     this.props.addBook(
@@ -218,78 +217,78 @@ class Book extends Component {
       id_nsx,
       id_author,
       file,
-      id, 
-      img
+      id,
+      img,
     } = this.state;
     if (name.length <= 0) {
       this.setState({
-        noti: "Name invalid"
+        noti: "Name invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (release_date === null) {
       this.setState({
-        noti: "Day invalid"
+        noti: "Day invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (!this.invalidPrice(price)) {
       this.setState({
-        noti: "Price invalid"
+        noti: "Price invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (id_category === "") {
       this.setState({
-        noti: "Category invalid"
+        noti: "Category invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     if (id_author === "") {
       this.setState({
-        noti: "Author invalid"
+        noti: "Author invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
 
     if (id_nsx === "") {
       this.setState({
-        noti: "Publisher invalid"
+        noti: "Publisher invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
-    if (file === null && img === '' ) {
+    if (file === null && img === "") {
       this.setState({
-        noti: "File invalid"
+        noti: "File invalid",
       });
       return;
     } else {
       this.setState({
-        noti: ""
+        noti: "",
       });
     }
     this.props.updateBook(
@@ -314,12 +313,14 @@ class Book extends Component {
               className="btn-custom"
               type="submit"
             >
-              Add
+              Thêm
             </button>
             <button className="btn-custom" disabled type="button">
-              Update
+              Cập Nhật
             </button>
-            <button className="btn-custom" onClick={() => this.reset()}>Reset</button>
+            <button className="btn-custom" onClick={() => this.reset()}>
+              Cài Lại
+            </button>
           </div>
         </div>
       );
@@ -328,16 +329,18 @@ class Book extends Component {
         <div className="form-group">
           <div className="col-lg-offset-2 col-lg-10">
             <button className="btn-custom" disabled type="submit">
-              Add
+              Thêm
             </button>
             <button
               className="btn-custom"
               onClick={() => this.submitUpdateBook()}
               type="button"
             >
-              Update
+              Cập Nhật
             </button>
-            <button className="btn-custom" onClick={() => this.reset()}>Reset</button>
+            <button className="btn-custom" onClick={() => this.reset()}>
+              Cài Lại
+            </button>
           </div>
         </div>
       );
@@ -346,25 +349,25 @@ class Book extends Component {
   reset = () => {
     this.setState({
       noti: "",
-        name: "",
-        file: null,
-        imagePreviewUrl: null,
-        curr: "add",
-        category: "category",
-        publisher: "publisher",
-        author: "author",
-        name: "",
-        release_date: null,
-        price: "",
-        img: "",
-        describe: "",
-        id_nsx: "",
-        id_author: "",
-        id_category: "",
-        noti: "",
-        id: null
-    })
-  }
+      name: "",
+      file: null,
+      imagePreviewUrl: null,
+      curr: "add",
+      category: "category",
+      publisher: "publisher",
+      author: "author",
+      name: "",
+      release_date: null,
+      price: "",
+      img: "",
+      describe: "",
+      id_nsx: "",
+      id_author: "",
+      id_category: "",
+      noti: "",
+      id: null,
+    });
+  };
   renderMenuCategory = () => {
     if (this.props.category) {
       return this.props.category.map((element, index) => {
@@ -373,7 +376,7 @@ class Book extends Component {
             onClick={() =>
               this.setState({
                 category: element.name,
-                id_category: element._id
+                id_category: element._id,
               })
             }
           >
@@ -419,17 +422,17 @@ class Book extends Component {
       return null;
     }
   };
-  getNameCategoryByID = id => {
+  getNameCategoryByID = (id) => {
     for (let i = 0; i < this.props.category.length; i++) {
       if (id === this.props.category[i]._id) return this.props.category[i].name;
     }
   };
-  getNameAuthorByID = id => {
+  getNameAuthorByID = (id) => {
     for (let i = 0; i < this.props.author.length; i++) {
       if (id === this.props.author[i]._id) return this.props.author[i].name;
     }
   };
-  getNamePublisherByID = id => {
+  getNamePublisherByID = (id) => {
     for (let i = 0; i < this.props.publisher.length; i++) {
       console.log(id + " === " + this.props.publisher[i]._id);
       if (id === this.props.publisher[i]._id)
@@ -442,18 +445,20 @@ class Book extends Component {
         <div className="row">
           <div className="col-lg-12">
             <h3 className="page-header">
-              <i className="fa fa-table" /> Table
+              <i className="fa fa-table" /> Bảng
             </h3>
             <ol className="breadcrumb">
               <li>
                 <i className="fa fa-home" />
-                <Link to="/">Home</Link>
+                <Link to="/">Trang Chủ</Link>
               </li>
               <li>
-                <i className="fa fa-table" />Table
+                <i className="fa fa-table" />
+                Bảng
               </li>
               <li>
-                <i className="fa fa-th-list" />Book Manager
+                <i className="fa fa-th-list" />
+                Quản lý sách
               </li>
             </ol>
           </div>
@@ -461,31 +466,31 @@ class Book extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Advanced Table</header>
+              <header className="panel-heading">Bảng Nâng Cao</header>
               <table className="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
                     <th>
-                      <i className="icon_profile" /> Name
+                      <i className="icon_profile" /> Tên
                     </th>
                     <th>
-                      <i className="icon_calendar" /> Date
+                      <i className="icon_calendar" /> Ngày
                     </th>
                     <th>
-                      <i className="icon_mail_alt" /> Price
+                      <i className="icon_mail_alt" /> Giá
                     </th>
                     <th>
-                      <i className="icon_pin_alt" /> describe
+                      <i className="icon_pin_alt" /> Mô tả
                     </th>
                     <th>
-                      <i className="icon_cogs" /> Action
+                      <i className="icon_cogs" /> Hành động
                     </th>
                   </tr>
                   {this.props.book.map((element, index) => {
                     return (
                       <tr>
                         <td>{element.name}</td>
-                        <td>{element.release_date.slice(0,10)}</td>
+                        <td>{element.release_date.slice(0, 10)}</td>
                         <td>{element.price}</td>
                         <td style={{ width: "40%" }}>{element.describe}</td>
                         <td>
@@ -514,7 +519,7 @@ class Book extends Component {
                                     element.id_nsx
                                   ),
                                   img: element.img,
-                                  id: element._id
+                                  id: element._id,
                                 })
                               }
                               className="btn btn-success"
@@ -541,7 +546,7 @@ class Book extends Component {
         <div className="row">
           <div className="col-lg-12">
             <section className="panel">
-              <header className="panel-heading">Form validations</header>
+              <header className="panel-heading">Xác thực biểu mẫu</header>
               <div className="panel-body">
                 <div className="form" id="from-book">
                   <div
@@ -552,13 +557,13 @@ class Book extends Component {
                   >
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Name <span className="required">*</span>
+                        Tên <span className="required">*</span>
                       </label>
                       <div className="col-lg-10">
                         <input
-                          onChange={e => {
+                          onChange={(e) => {
                             this.setState({
-                              name: e.target.value
+                              name: e.target.value,
                             });
                           }}
                           value={this.state.name}
@@ -573,14 +578,14 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="cemail" className="control-label col-lg-2">
-                        Date<span className="required">*</span>
+                        Ngày<span className="required">*</span>
                       </label>
                       <div className="col-lg-10">
                         <input
                           value={this.state.release_date}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({
-                              release_date: e.target.value
+                              release_date: e.target.value,
                             })
                           }
                           className="form-control "
@@ -593,14 +598,14 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="curl" className="control-label col-lg-2">
-                        Price
+                        Giá
                       </label>
                       <div className="col-lg-10">
                         <input
                           value={this.state.price}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({
-                              price: e.target.value
+                              price: e.target.value,
                             })
                           }
                           className="form-control "
@@ -612,14 +617,14 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="cname" className="control-label col-lg-2">
-                        Miêu Tả <span className="required">*</span>
+                        Mô tả <span className="required">*</span>
                       </label>
                       <div className="col-lg-10">
                         <input
                           value={this.state.describe}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.setState({
-                              describe: e.target.value
+                              describe: e.target.value,
                             })
                           }
                           className="form-control"
@@ -687,7 +692,7 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="comment" className="control-label col-lg-2">
-                        Image upload{" "}
+                        Tải ảnh lên{" "}
                       </label>
                       <div className="col-lg-10">
                         <input
@@ -696,7 +701,7 @@ class Book extends Component {
                           id="ccomment"
                           name="comment"
                           required
-                          onChange={e =>
+                          onChange={(e) =>
                             this.handleChangeImg(e.target.files[0])
                           }
                         />
@@ -704,7 +709,7 @@ class Book extends Component {
                     </div>
                     <div className="form-group ">
                       <label for="comment" className="control-label col-lg-2">
-                        Image
+                        Ảnh
                       </label>
                       <div className="col-lg-10">
                         <img
