@@ -107,7 +107,7 @@ class Home extends Component {
                       <tbody>
                         {this.props.top_product.map((element, index) => {
                           return (
-                            <tr>
+                            <tr key={index}>
                               <td>
                                 <div className="home-image">
                                   <img src={element.img} />

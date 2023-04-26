@@ -12,7 +12,7 @@ class Slider extends Component {
             </a>
           </li>
           <li className="sub-menu">
-            <a href="javascript:" className="">
+            <a href="/" className="">
               <i className="icon_document_alt"></i>
               <span>Quản Lý Sách</span>
               <span className="menu-arrow arrow_carrot-right"></span>
@@ -42,7 +42,7 @@ class Slider extends Component {
           </li>
           <li className="sub-menu">
             <a href="/usermanager" className="">
-              <i class="fa fa-light fa-user"></i>
+              <i className="fa fa-light fa-user"></i>
               <span>Quản Lý Tài Khoản</span>
             </a>
           </li>
