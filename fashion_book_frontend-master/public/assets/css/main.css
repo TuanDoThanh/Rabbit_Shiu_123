@@ -163,6 +163,49 @@
         opacity: 1;
       }
      }
+     @media (max-width: 768px){
+      .col-sm-3{
+        display: none;
+      }
+      .header-tittel{
+        display: none;
+      }
+      .title-header-764{
+        display: none;
+      }
+      .col-sm-0{
+        display: none;
+      }
+      .header__logo-img{
+        transform: translateX(40px);
+      }
+      .productinfo img{
+        max-height: 330px;
+        min-width: 325px;
+      }
+      .logo-header{
+        max-height: 60px;
+        line-height: 60px;
+      }
+      .search_box{
+        display: none;
+      }
+     }
+
+     @media (max-width: 992px){
+     .col-sm-0{
+        display: none;
+      }
+      .header-tittel{
+        display: none;
+      }
+      .col-sm-3{
+        display: none;
+      }
+      .ss-slider{
+        display: none;
+      }
+    }
 
      .header-tittel{
       float: right;
@@ -1149,8 +1192,8 @@
       .productinfo img{
         padding-top: 20px;
         width: 100%;
-        max-height: 280px;
-        /* min-height: 175px; */
+        /* max-height: 280px; */
+        min-height: 175px;
         border-radius: 10px;
       }
       
@@ -1387,6 +1430,8 @@
       .our_partners ul li a:hover{
         background:none;
       }
+
+
 
       /*************************
       *******Shop CSS******
@@ -1699,6 +1744,11 @@
       .btn-default i{
         margin-right: 10px;
       }
+
+
+      .btn-cancel-oder{
+        margin: 0;
+      }
       .btn-buy-now-detail{
         background-color: #00bf00;
         font-size: 20px;
@@ -1961,7 +2011,8 @@
         margin: 2.5rem 0;
       }
       .login-form  span{
-        line-height: 25px;
+        line-height: 66px;
+        font-size: 20px;
       }
       .login-form{
         margin: 3rem 0;
@@ -1974,7 +2025,7 @@
       }
 
       .login-form  button {
-        margin-top: 23px;
+        margin-top: 12px;
       }
 
       .login-form  button, .signup-form  button {
@@ -2050,7 +2101,7 @@
       }
 
       #cart_items .cart_info {
-        border: 1px solid #E6E4DF;
+        /* border: 1px solid #E6E4DF; */
         margin-bottom: 50px;
         background-color: #fff;
       }
@@ -2163,6 +2214,10 @@
         margin-bottom: 0px;
       }
 
+      .total-bill{
+        line-height: 72px;
+      }
+
       .cart_product {
         display: block;
         margin: 15px -70px 10px 25px;
@@ -2265,10 +2320,19 @@
         float: right;
         margin-right: 12px;
       }
+      .payment-method{
+        margin-right: 12px;
+        width: 100%;
+      }
+      .payment-method span{
+        color: #f15129;
+        float: right;
+      }
       .total-sup{
         font-size: 18px;
         background-color: #fff;
         padding-bottom: 6px;
+        text-align: left;
       }
       .shipping-unit{
         line-height: 74px;

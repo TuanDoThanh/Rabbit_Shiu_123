@@ -126,7 +126,7 @@ class HeaderMiddle extends Component {
                     </a>
                   </div>
                 </div>
-                <div className="col-sm-6 logo-header">
+                <div className="col-sm-6 logo-header title-header-764">
                   <a href="/">
                     <h2 className="header-tittel">Rabbit Shiu</h2>
                   </a>

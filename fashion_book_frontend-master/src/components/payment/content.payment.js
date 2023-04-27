@@ -23,10 +23,22 @@ class ContentPayment extends Component {
       showpaymentfail: false,
       modalIsOpen: false,
       shippingInfo: {},
+      isOpen1: false,
+      isOpen2: false,
     };
   }
-  //phuong thuc thanh toan
 
+  //phuong thuc thanh toan
+  toggleList1 = () => {
+    this.setState((prevState) => ({
+      isOpen1: !prevState.isOpen1,
+    }));
+  };
+  toggleList2 = () => {
+    this.setState((prevState) => ({
+      isOpen2: !prevState.isOpen2,
+    }));
+  };
   // thong tin giao hang
   openModal = () => {
     this.setState({ modalIsOpen: true });
@@ -87,6 +99,12 @@ class ContentPayment extends Component {
   };
 
   handlePayment = () => {
+    if (!this.props.islogin) {
+      this.setState({ show: true });
+      return;
+    } else {
+      this.setState({ show: false });
+    }
     let check = true;
     if (this.state.name.length < 3) {
       this.setState({
@@ -118,7 +136,9 @@ class ContentPayment extends Component {
       this.state.address,
       this.state.phone,
       this.state.name,
-      this.state.total
+      this.state.total,
+      this.reset(),
+      window.location.reload(),
     );
   };
 
@@ -307,14 +327,169 @@ class ContentPayment extends Component {
                 <h4>Chọn phương thức thanh toán</h4>
                 <div className="col-md-12">
                   <div className="col-md-6">
-                    <button className="info_ship-btn">
-                      {"    "}Thanh toán khi nhận hàng
-                    </button>
+                    <div>
+                      <button
+                        className="info_ship-btn"
+                        onClick={this.toggleList1}
+                      >
+                        Thanh toán khi nhận hàng
+                      </button>
+                      {this.state.isOpen1 && (
+                        <ul>
+                          <li>
+                            <div class="row ">
+                              <div className="col-md-12 payment-method">
+                                <h2 className="total-sup">
+                                  Phí vận chuyển:
+                                  <span className="total-sup">
+                                    0<sup className="total-sup">đ</sup>
+                                  </span>
+                                </h2>
+                              </div>
+                              <div className="col-md-12 payment-method">
+                                <h2 className="total-sup">
+                                  Tổng:
+                                  <span className="total-sup">
+                                    {new Intl.NumberFormat("de-DE", {
+                                      currency: "EUR",
+                                    }).format(this.state.total)}
+                                    <sup className="total-sup">đ</sup>
+                                  </span>
+                                </h2>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <button
+                              className="row btn btn-default update"
+                              onClick={() => {
+                                this.handlePayment();
+                              }}
+                            >
+                              Thanh toán
+                            </button>
+                          </li>
+                        </ul>
+                      )}
+                    </div>
                   </div>
                   <div className="col-md-6">
-                    <button className="info_ship-btn">
-                      {"    "}Thanh toán bằng Paypal
-                    </button>
+                    <div>
+                      <button
+                        className="info_ship-btn"
+                        onClick={this.toggleList2}
+                      >
+                        Thanh toán bằng Paypal
+                      </button>
+                      {this.state.isOpen2 && (
+                        <ul>
+                          <li>
+                            <div class="row ">
+                              <div className="col-md-12 payment-method">
+                                <h2 className="total-sup">
+                                  Phí vận chuyển:
+                                  <span className="total-sup">
+                                    0<sup className="total-sup">đ</sup>
+                                  </span>
+                                </h2>
+                              </div>
+                              <div className="col-md-12 payment-method">
+                                <h2 className="total-sup">
+                                  Tổng:
+                                  <span className="total-sup">
+                                    {new Intl.NumberFormat("de-DE", {
+                                      currency: "EUR",
+                                    }).format(this.state.total)}
+                                    <sup className="total-sup">đ</sup>
+                                  </span>
+                                </h2>
+                              </div>
+                            </div>
+                            <Modal
+                              show={this.state.ispay}
+                              onHide={() => this.setState({ ispay: false })}
+                              container={this}
+                              aria-labelledby="contained-modal-title"
+                            >
+                              <Modal.Header closeButton>
+                                <Modal.Title id="contained-modal-title">
+                                  Notification
+                                </Modal.Title>
+                              </Modal.Header>
+                              <Modal.Body>
+                                Đặt Hàng Thành Công, Vui Lòng Vào Đơn Hàng Để
+                                Xem Chi Tiết
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button
+                                  onClick={() => {
+                                    this.reset();
+                                    window.location.reload();
+                                  }}
+                                >
+                                  <a>OK</a>
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>
+
+                            <Modal
+                              show={this.state.showpaymentfail}
+                              onHide={() =>
+                                this.setState({ showpaymentfail: false })
+                              }
+                              container={this}
+                              aria-labelledby="contained-modal-title"
+                            >
+                              <Modal.Header closeButton>
+                                <Modal.Title id="contained-modal-title">
+                                  Notification
+                                </Modal.Title>
+                              </Modal.Header>
+                              <Modal.Body>Đặt Hang Thất Bại</Modal.Body>
+                              <Modal.Footer>
+                                <Button
+                                  onClick={() =>
+                                    this.setState({ showpaymentfail: false })
+                                  }
+                                >
+                                  <a>Cancel</a>
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>
+                            <button>
+                              <PayPalScriptProvider options={initialOptions}>
+                                <PayPalButtons
+                                  createOrder={(data, actions) => {
+                                    return actions.order.create({
+                                      purchase_units: [
+                                        {
+                                          amount: {
+                                            value: Math.ceil(
+                                              this.state.total / 23000.0
+                                            ).toString(),
+                                          },
+                                        },
+                                      ],
+                                    });
+                                  }}
+                                  onApprove={(data, actions) => {
+                                    return actions.order
+                                      .capture()
+                                      .then((details) => {
+                                        const name =
+                                          details.payer.name.given_name;
+                                        this.handlePayment();
+                                        // alert(Transaction completed by ${name});
+                                      });
+                                  }}
+                                />
+                                <Link to="/purchase_history"></Link>
+                              </PayPalScriptProvider>
+                            </button>
+                          </li>
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -327,91 +502,8 @@ class ContentPayment extends Component {
               <div className="col-md-12">
                 <div className="chose_area">
                   <div className="cart-option">
-                    <div className="col-md-6">
-                      <button
-                        className="btn btn-default update"
-                        onClick={() => this.handlePayment()}
-                      >
-                        Thanh Toán
-                      </button>
-                      <Modal
-                        show={this.state.ispay}
-                        onHide={() => this.setState({ ispay: false })}
-                        container={this}
-                        aria-labelledby="contained-modal-title"
-                      >
-                        <Modal.Header closeButton>
-                          <Modal.Title id="contained-modal-title">
-                            Thông Báo
-                          </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                          Đặt Hàng Thành Công, Vui Lòng Vào Đơn Hàng Để Xem Chi
-                          Tiết
-                        </Modal.Body>
-                        <Modal.Footer>
-                          <Button
-                            onClick={() => {
-                              this.reset();
-                              window.location.reload();
-                            }}
-                          >
-                            <a>OK</a>
-                          </Button>
-                        </Modal.Footer>
-                      </Modal>
-
-                      <Modal
-                        show={this.state.showpaymentfail}
-                        onHide={() => this.setState({ showpaymentfail: false })}
-                        container={this}
-                        aria-labelledby="contained-modal-title"
-                      >
-                        <Modal.Header closeButton>
-                          <Modal.Title id="contained-modal-title">
-                            Thông Báo
-                          </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>Đặt Hang Thất Bại</Modal.Body>
-                        <Modal.Footer>
-                          <Button
-                            onClick={() =>
-                              this.setState({ showpaymentfail: false })
-                            }
-                          >
-                            <a>Hủy</a>
-                          </Button>
-                        </Modal.Footer>
-                      </Modal>
-                    </div>
-                    <div className="col-md-6">
-                      <button>
-                        <PayPalScriptProvider options={initialOptions}>
-                          <PayPalButtons
-                            createOrder={(data, actions) => {
-                              return actions.order.create({
-                                purchase_units: [
-                                  {
-                                    amount: {
-                                      value: Math.ceil(
-                                        this.state.total / 23000.0
-                                      ).toString(),
-                                    },
-                                  },
-                                ],
-                              });
-                            }}
-                            onApprove={(data, actions) => {
-                              return actions.order.capture().then((details) => {
-                                const name = details.payer.name.given_name;
-                                this.handlePayment();
-                                // alert(Transaction completed by ${name});
-                              });
-                            }}
-                          />
-                        </PayPalScriptProvider>
-                      </button>
-                    </div>
+                    <div className="col-md-6"></div>
+                    <div className="col-md-6"></div>
                   </div>
                 </div>
               </div>
