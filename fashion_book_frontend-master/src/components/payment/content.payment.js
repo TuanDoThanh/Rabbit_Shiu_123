@@ -137,8 +137,6 @@ class ContentPayment extends Component {
       this.state.phone,
       this.state.name,
       this.state.total,
-      this.reset(),
-      window.location.reload(),
     );
   };
 
